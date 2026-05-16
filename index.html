@@ -1321,7 +1321,7 @@
       
       .doctor-video-wrap {
         display: grid;
-        grid-template-columns: 1fr 0.9fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
         gap: 52px;
         align-items: center;
       }
@@ -1366,14 +1366,16 @@
         display: block;
       }
       
-      @media (max-width: 1000px) {
-        .doctor-video-wrap {
-          grid-template-columns: 1fr;
-        }
+     @media (max-width: 1000px) {
+      .doctor-video-wrap {
+        grid-template-columns: 1fr;
       }
-
+    
+      .doctor-video-card {
+        justify-self: center;
+      }
     }
-
+      
   </style>
 </head>
 <body>
