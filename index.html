@@ -1321,7 +1321,7 @@
       
       .doctor-video-wrap {
         display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-columns: 1fr 0.9fr;
         gap: 52px;
         align-items: center;
       }
@@ -1333,6 +1333,10 @@
         background: var(--hannah-navy);
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
+      
+        max-width: 560px;
+        width: 100%;
+        justify-self: end;
       }
       
       .doctor-video-card::before {
@@ -1348,6 +1352,7 @@
       .doctor-video {
         width: 100%;
         aspect-ratio: 16 / 9;
+        max-height: 315px;
         object-fit: cover;
         display: block;
       }
