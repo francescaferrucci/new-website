@@ -1,3 +1,11 @@
+ile and fixed the main issue: the CSS block was missing a closing } near the end, which can cause the browser to interpret later code incorrectly. I also updated the doctor video source to force the Dr. Horner video instead of the hero video.
+
+Use this file:
+
+Download rewritten index.html
+
+Make sure Dr. Horner Short.mp4 is uploaded to GitHub in the same folder as index.html.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -725,8 +733,7 @@
       color: var(--hannah-orange);
     }
     
-    .band .section-heading,
-    .band .section-kicker {
+    .band .section-heading {
       color: var(--white);
     }
 
@@ -1533,7 +1540,7 @@
             poster="HPH_Photo2.png"
             controls
           >
-            <source src="Dr. Horner Short.mp4" type="video/mp4" />
+            <source src="./Dr.%20Horner%20Short.mp4?v=doctor-horner-1" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -1556,6 +1563,7 @@
       
       <p>Through our signature Total Lifetime Care™ plans, we provide complete peace of mind for Pet Parents. This approach ensures your Pet has unlimited access to the exact care they need, precisely when they need it. We take the worry out of veterinary care, giving you the freedom to focus on what matters most – loving your Pet for a lifetime.</p>
     </section>
+  </main>
 
   <footer>
     <div class="container">
@@ -1610,6 +1618,3 @@
   </script>
 </body>
 </html>
-
-
-
