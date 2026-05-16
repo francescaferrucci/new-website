@@ -676,7 +676,7 @@
       overflow: hidden;
     }
 
-    band::before,
+    .band::before,
     .band::after {
       content: "";
       position: absolute;
@@ -688,21 +688,32 @@
     }
     
     .band::before {
-      width: 260px;
-      height: 260px;
+      width: 390px; /* increased 50% */
+      height: 390px;
       background-image: url("Heart.png");
-      right: -70px;
-      top: -70px;
+      right: -90px;
+      top: -90px;
       filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
     }
     
     .band::after {
-      width: 230px;
-      height: 230px;
+      width: 345px; /* increased 50% */
+      height: 345px;
       background-image: url("Dog.png");
-      left: -60px;
-      bottom: -70px;
+      left: -95px;
+      bottom: -95px;
+      transform: rotate(10deg);
       filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
+    }
+    
+    .band .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CHANGE TO ORANGE */
+    .band .section-kicker {
+      color: var(--hannah-orange) !important;
     }
     
     .band .container {
@@ -971,20 +982,21 @@
     }
     
     .heritage-panel::before {
-      width: 230px;
-      height: 230px;
+      width: 345px; /* increased 50% */
+      height: 345px;
       background-image: url("Cat.png");
-      left: -55px;
-      top: -50px;
+      left: -95px;
+      top: -75px;
+      transform: rotate(-10deg);
       filter: brightness(0) saturate(100%) invert(100%);
     }
     
     .heritage-panel::after {
-      width: 230px;
-      height: 230px;
+      width: 345px; /* increased 50% */
+      height: 345px;
       background-image: url("Heart.png");
-      right: -60px;
-      bottom: -70px;
+      right: -90px;
+      bottom: -95px;
       filter: brightness(0) saturate(100%) invert(49%) sepia(91%) saturate(1665%) hue-rotate(356deg) brightness(103%) contrast(101%);
     }
 
@@ -993,11 +1005,11 @@
       z-index: 1;
       width: min(270px, 72vw);
       margin: 0 auto 26px;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(31, 59, 84, 0.12);
-      border-radius: 18px;
-      padding: 18px 24px;
-      box-shadow: 0 18px 42px rgba(31, 59, 84, 0.16);
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .heritage-logo img {
