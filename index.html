@@ -676,17 +676,44 @@
       overflow: hidden;
     }
 
-    .band::before {
+    band::before,
+    .band::after {
       content: "";
       position: absolute;
-      width: 460px;
-      height: 460px;
-      border-radius: 50%;
-      background: rgba(200, 155, 60, 0.16);
-      right: -160px;
-      top: -140px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
     }
-
+    
+    .band::before {
+      width: 260px;
+      height: 260px;
+      background-image: url("Heart.png");
+      right: -70px;
+      top: -70px;
+      filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
+    }
+    
+    .band::after {
+      width: 230px;
+      height: 230px;
+      background-image: url("Dog.png");
+      left: -60px;
+      bottom: -70px;
+      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
+    }
+    
+    .band .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .band .section-kicker {
+      color: var(--hannah-orange);
+    }
+    
     .band .section-heading,
     .band .section-kicker {
       color: var(--white);
@@ -720,10 +747,10 @@
       opacity: 0.72;
     }
 
-    .icon {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--hannah-yellow);
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
       margin-bottom: 16px;
     }
 
@@ -936,25 +963,29 @@
     .heritage-panel::after {
       content: "";
       position: absolute;
-      border-radius: 999px;
-      opacity: 0.8;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.18;
       pointer-events: none;
+      z-index: 0;
     }
-
+    
     .heritage-panel::before {
-      width: 220px;
-      height: 220px;
-      background: var(--hannah-yellow);
-      left: -80px;
-      top: -90px;
+      width: 230px;
+      height: 230px;
+      background-image: url("Cat.png");
+      left: -55px;
+      top: -50px;
+      filter: brightness(0) saturate(100%) invert(100%);
     }
-
+    
     .heritage-panel::after {
-      width: 180px;
-      height: 180px;
-      background: var(--hannah-orange);
-      right: -70px;
-      bottom: -90px;
+      width: 230px;
+      height: 230px;
+      background-image: url("Heart.png");
+      right: -60px;
+      bottom: -70px;
+      filter: brightness(0) saturate(100%) invert(49%) sepia(91%) saturate(1665%) hue-rotate(356deg) brightness(103%) contrast(101%);
     }
 
     .heritage-logo {
@@ -1380,22 +1411,22 @@
 
         <div class="feature-grid">
           <div class="feature-card">
-            <div class="icon">$</div>
+           <img class="feature-icon" src="Affordable.png" alt="" />
             <h3>Affordable Monthly Fee</h3>
             <p>Simple, predictable pricing for covered care.</p>
           </div>
           <div class="feature-card">
-            <div class="icon">+</div>
+            <img class="feature-icon" src="Comprehensive Care.png" alt="" />
             <h3>Comprehensive Care</h3>
             <p>Medical, dental, emergency, diagnostics, medications, behavior support, and more.</p>
           </div>
           <div class="feature-card">
-            <div class="icon">∞</div>
+            <img class="feature-icon" src="Lifetime Partnership.png" alt="" />
             <h3>Lifetime Partnership</h3>
             <p>A care relationship that grows with your Pet.</p>
           </div>
           <div class="feature-card">
-            <div class="icon">✓</div>
+            <img class="feature-icon" src="Prevention.png" alt="" />
             <h3>Focus on Prevention</h3>
             <p>Helping Pets live longer, healthier lives.</p>
           </div>
