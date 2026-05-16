@@ -1206,29 +1206,14 @@
         font-size: 36px;
       }
 
-      .join-hannah-photo {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--cream);
-  background-image:
-    linear-gradient(90deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(31, 59, 84, 0.018) 1px, transparent 1px);
-  background-size: 7px 7px, 9px 9px;
-  padding: 105px 0;
-}
-
-.join-hannah-photo::before {
+     .join-hannah-photo::before {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg,
-      var(--cream) 0%,
-      rgba(247, 248, 246, 0.98) 24%,
-      rgba(247, 248, 246, 0.86) 42%,
-      rgba(247, 248, 246, 0.46) 60%,
-      rgba(247, 248, 246, 0.08) 78%),
-    url('HPH_Photo3.png') right center / auto 100% no-repeat;
+  background-image: url("HPH_Photo3.png");
+  background-position: right center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
@@ -1236,23 +1221,16 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg,
-      var(--cream) 0%,
-      rgba(247, 248, 246, 0.72) 36%,
-      rgba(247, 248, 246, 0) 66%);
+  background: linear-gradient(
+    90deg,
+    var(--cream) 0%,
+    rgba(247, 248, 246, 0.98) 28%,
+    rgba(247, 248, 246, 0.82) 45%,
+    rgba(247, 248, 246, 0.35) 62%,
+    rgba(247, 248, 246, 0) 78%
+  );
   z-index: 1;
   pointer-events: none;
-}
-
-.join-content {
-  position: relative;
-  z-index: 2;
-  max-width: var(--max);
-}
-
-.join-content > div {
-  max-width: 620px;
 }
 
 @media (max-width: 900px) {
