@@ -159,17 +159,13 @@
     }
     
     .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 120px;
-      z-index: 2;
+      height: 180px;
       background: linear-gradient(
         180deg,
         rgba(255,255,255,0) 0%,
-        var(--warm-cream) 100%
+        rgba(247,248,246,0.72) 58%,
+        var(--cream) 100%
       );
-      pointer-events: none;
     }
     
     .hero-content {
@@ -180,6 +176,11 @@
       margin-right: clamp(28px, 5vw, 86px);
       padding: 120px 0 170px;
       text-align: left;
+    }
+
+    .tlc-feature-section {
+      margin-top: -40px;
+      padding-top: 90px;
     }
 
     .eyebrow {
@@ -339,9 +340,12 @@
     }
     
     .tlc-feature-wrap {
+      width: min(100%, 100%);
+      margin: 0;
+      padding-left: max(20px, calc((100vw - var(--max)) / 2));
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 52px;
+      grid-template-columns: minmax(420px, 0.9fr) minmax(520px, 1.1fr);
+      gap: 42px;
       align-items: stretch;
       min-height: 620px;
     }
@@ -383,17 +387,20 @@
     }
     
     .tlc-cat-photo {
-      min-height: 560px;
-      align-self: stretch;
+      min-height: 620px;
+      width: 100%;
+      justify-self: stretch;
       border-radius: 0;
+      border: none;
+      box-shadow: none;
       background:
         linear-gradient(90deg,
           var(--cream) 0%,
-          rgba(247,248,246,0.92) 10%,
-          rgba(247,248,246,0.58) 24%,
-          rgba(247,248,246,0.18) 42%,
+          rgba(247,248,246,0.96) 8%,
+          rgba(247,248,246,0.72) 22%,
+          rgba(247,248,246,0.28) 42%,
           rgba(247,248,246,0) 62%),
-        url("Cat Photo.jpeg") center / cover no-repeat;
+        url("Cat Photo.jpeg") center right / cover no-repeat;
     }
     
      .member-video-section {
@@ -576,6 +583,20 @@
       .hero-content {
         padding: 90px 0 140px;
       }
+
+      .tlc-feature-wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+        padding-left: 0;
+        grid-template-columns: 1fr;
+      }
+    
+      .tlc-cat-photo {
+        min-height: 360px;
+        border-radius: var(--radius);
+      }
+    }
+    
     }
 
     @media (max-width: 640px) {
