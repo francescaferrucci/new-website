@@ -326,10 +326,11 @@
       font-size: 0.9rem;
     }
 
-    .tlc-feature-section,
-    .member-video-section,
-    .comparison-section {
-      padding: 100px 0;
+    .tlc-feature-section {
+      padding: 0;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
       background:
         linear-gradient(90deg, rgba(31,59,84,0.025) 1px, transparent 1px),
         linear-gradient(0deg, rgba(31,59,84,0.018) 1px, transparent 1px),
@@ -341,7 +342,8 @@
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
       gap: 52px;
-      align-items: center;
+      align-items: stretch;
+      min-height: 620px;
     }
     
     .tlc-feature-copy {
@@ -381,50 +383,81 @@
     }
     
     .tlc-cat-photo {
-      min-height: 480px;
-      border-radius: var(--radius);
+      min-height: 560px;
+      align-self: stretch;
+      border-radius: 0;
       background:
         linear-gradient(90deg,
           var(--cream) 0%,
-          rgba(247,248,246,0.88) 12%,
-          rgba(247,248,246,0.35) 32%,
-          rgba(247,248,246,0) 55%),
+          rgba(247,248,246,0.92) 10%,
+          rgba(247,248,246,0.58) 24%,
+          rgba(247,248,246,0.18) 42%,
+          rgba(247,248,246,0) 62%),
         url("Cat Photo.jpeg") center / cover no-repeat;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+    }
+    
+     .member-video-section {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+      background-color: var(--hannah-navy);
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+    }
+    
+    .member-video-section::before,
+    .member-video-section::after {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .member-video-section::before {
+      width: 390px;
+      height: 390px;
+      background-image: url("Heart.png");
+      left: -90px;
+      top: -90px;
+      filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
+    }
+    
+    .member-video-section::after {
+      width: 345px;
+      height: 345px;
+      background-image: url("Dog.png");
+      right: -95px;
+      bottom: -95px;
+      transform: rotate(10deg);
+      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
     }
     
     .member-video-card {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 36px;
+      gap: 42px;
       align-items: center;
-      background: rgba(81,181,224,0.14);
-      border: 1px solid rgba(81,181,224,0.28);
-      border-radius: calc(var(--radius) + 10px);
-      padding: clamp(28px, 5vw, 54px);
-      box-shadow: var(--shadow);
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
     }
     
-    .member-video-copy p {
-      color: var(--muted);
-      font-size: 1.08rem;
+    .member-video-section .section-heading,
+    .member-video-section .member-video-copy p {
+      color: white;
     }
     
-    .member-video-frame {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--hannah-navy);
-      box-shadow: var(--shadow);
-    }
-    
-    .member-video-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+    .member-video-section .eyebrow {
+      color: var(--hannah-orange);
     }
     
     .comparison-heading {
@@ -641,11 +674,10 @@
 <section class="member-video-section">
   <div class="container member-video-card">
     <div class="member-video-copy">
-      <div class="eyebrow">Hannah Member Story</div>
-      <h2 class="section-heading">Learn Why This Hannah Member Chose Hannah</h2>
+      <div class="eyebrow">Learn Why This Hannah Member Chose Hannah</div>
+      <h2 class="section-heading">Hannah Member Shares</h2>
       <p>
-        Kirsten McMahon shares what it has been like joining Hannah as a first-time puppy parent
-        and how Total Lifetime Care® gives her confidence, support, and peace of mind.
+        Thousands of Portland Pet Parents choose Hannah for their Pets care.
       </p>
     </div>
 
