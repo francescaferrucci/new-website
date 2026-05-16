@@ -1081,7 +1081,76 @@
       padding-top: 24px;
       font-size: 0.9rem;
     }
-@media (max-width: 1000px) {
+
+    .doctor-video-section {
+      background-color: var(--warm-cream);
+      background-image:
+        linear-gradient(90deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(31, 59, 84, 0.018) 1px, transparent 1px);
+      background-size: 7px 7px, 9px 9px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .doctor-video-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 560px;
+      gap: 52px;
+      align-items: center;
+    }
+    
+    .doctor-video-copy {
+      min-width: 0;
+    }
+    
+    .doctor-video-card {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      justify-self: end;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--hannah-navy);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .doctor-video-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(255,255,255,0.26);
+      border-radius: calc(var(--radius) - 4px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .doctor-video {
+      display: block;
+      width: 100%;
+      height: 315px;
+      max-width: 100%;
+      object-fit: cover;
+    }
+    
+    @media (max-width: 1000px) {
+      .doctor-video-wrap {
+        grid-template-columns: 1fr;
+      }
+    
+      .doctor-video-card {
+        justify-self: center;
+      }
+    }
+    
+    @media (max-width: 680px) {
+      .doctor-video {
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+    }
+      
+    @media (max-width: 1000px) {
       .nav-links,
       .phone {
         display: none;
@@ -1126,7 +1195,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
 
       .join-hannah-photo {
         position: relative;
@@ -1308,73 +1376,6 @@
       .join-content > div {
         max-width: 100%;
       }
-
-      .doctor-video-section {
-        background-color: var(--warm-cream);
-        background-image:
-          linear-gradient(90deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
-          linear-gradient(0deg, rgba(31, 59, 84, 0.018) 1px, transparent 1px);
-        background-size: 7px 7px, 9px 9px;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .doctor-video-wrap {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
-        gap: 52px;
-        align-items: center;
-      }
-      
-      .doctor-video-card {
-        position: relative;
-        border-radius: var(--radius);
-        overflow: hidden;
-        background: var(--hannah-navy);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-      
-        width: min(100%, 560px);
-        max-width: 560px;
-        justify-self: end;
-      }
-
-      .doctor-video {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 315px;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-      }
-      
-      .doctor-video-card::before {
-        content: "";
-        position: absolute;
-        inset: 14px;
-        border: 1px solid rgba(255,255,255,0.26);
-        border-radius: calc(var(--radius) - 4px);
-        z-index: 1;
-        pointer-events: none;
-      }
-      
-      .doctor-video {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        max-height: 315px;
-        object-fit: cover;
-        display: block;
-      }
-      
-     @media (max-width: 1000px) {
-      .doctor-video-wrap {
-        grid-template-columns: 1fr;
-      }
-    
-      .doctor-video-card {
-        justify-self: center;
-      }
-    }
       
   </style>
 </head>
