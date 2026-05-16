@@ -1086,30 +1086,44 @@
 
 
       .join-hannah-photo {
-        padding: 92px 0;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--cream);
+        padding: 105px 0;
+        min-height: 520px;
       }
-
+      
       .join-hannah-photo::before {
-        background-position: 68% center;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("HPH_Photo3.png") right center / cover no-repeat;
+        z-index: 0;
       }
-
+      
       .join-hannah-photo::after {
-        background:
-          radial-gradient(
-            ellipse at 50% 50%,
-            rgba(247, 248, 246, 0.92) 0%,
-            rgba(247, 248, 246, 0.64) 28%,
-            rgba(247, 248, 246, 0.22) 54%,
-            rgba(247, 248, 246, 0) 76%
-          ),
-          linear-gradient(
-            90deg,
-            var(--cream) 0%,
-            rgba(247, 248, 246, 0.98) 38%,
-            rgba(247, 248, 246, 0.82) 52%,
-            rgba(247, 248, 246, 0.42) 68%,
-            rgba(247, 248, 246, 0.08) 100%
-          );
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          var(--cream) 0%,
+          rgba(247, 248, 246, 0.98) 25%,
+          rgba(247, 248, 246, 0.78) 45%,
+          rgba(247, 248, 246, 0.35) 62%,
+          rgba(247, 248, 246, 0) 82%
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      .join-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .join-content > div {
+        max-width: 620px;
       }
 
     @media (prefers-reduced-motion: reduce) {
