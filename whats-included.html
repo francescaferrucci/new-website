@@ -118,6 +118,15 @@
       background: var(--hannah-navy);
     }
 
+    .hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--hannah-navy);
+    }
+    
     .hero-video {
       position: absolute;
       inset: 0;
@@ -127,7 +136,7 @@
       object-position: center;
       z-index: 0;
     }
-
+    
     .hero::before {
       content: "";
       position: absolute;
@@ -135,38 +144,42 @@
       z-index: 1;
       background:
         linear-gradient(
-          90deg,
+          270deg,
           rgba(31,59,84,0.94) 0%,
-          rgba(31,59,84,0.84) 34%,
+          rgba(31,59,84,0.86) 34%,
           rgba(31,59,84,0.52) 58%,
-          rgba(31,59,84,0.18) 100%
+          rgba(31,59,84,0.16) 100%
         ),
         linear-gradient(
           180deg,
-          rgba(31,59,84,0.12) 0%,
-          rgba(31,59,84,0.56) 100%
+          rgba(31,59,84,0.18) 0%,
+          rgba(31,59,84,0.58) 100%
         );
       pointer-events: none;
     }
-
+    
     .hero::after {
       content: "";
       position: absolute;
       inset: auto 0 0 0;
       height: 120px;
+      z-index: 2;
       background: linear-gradient(
         180deg,
         rgba(255,255,255,0) 0%,
         var(--warm-cream) 100%
       );
-      z-index: 2;
+      pointer-events: none;
     }
-
+    
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 690px;
+      max-width: 660px;
+      margin-left: auto;
+      margin-right: clamp(28px, 5vw, 86px);
       padding: 120px 0 170px;
+      text-align: left;
     }
 
     .eyebrow {
