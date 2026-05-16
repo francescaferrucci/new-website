@@ -1205,6 +1205,66 @@
       .chalk-script text {
         font-size: 36px;
       }
+
+      .join-hannah-photo {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(90deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(31, 59, 84, 0.018) 1px, transparent 1px);
+  background-size: 7px 7px, 9px 9px;
+  padding: 105px 0;
+}
+
+.join-hannah-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--cream) 0%,
+      rgba(247, 248, 246, 0.98) 24%,
+      rgba(247, 248, 246, 0.86) 42%,
+      rgba(247, 248, 246, 0.46) 60%,
+      rgba(247, 248, 246, 0.08) 78%),
+    url('HPH_Photo3.png') right center / auto 100% no-repeat;
+  z-index: 0;
+}
+
+.join-hannah-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--cream) 0%,
+      rgba(247, 248, 246, 0.72) 36%,
+      rgba(247, 248, 246, 0) 66%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.join-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+}
+
+.join-content > div {
+  max-width: 620px;
+}
+
+@media (max-width: 900px) {
+  .join-hannah-photo::before {
+    background:
+      linear-gradient(90deg,
+        var(--cream) 0%,
+        rgba(247, 248, 246, 0.96) 55%,
+        rgba(247, 248, 246, 0.5) 100%),
+      url('HPH_Photo3.png') 70% center / cover no-repeat;
+  }
+}
     }
   </style>
 </head>
@@ -1271,47 +1331,15 @@
       </div>
     </section>
 
-    <div class="container proof-wrap">
-      <div class="proof-card">
-        <div class="proof-title">
-          <div class="section-kicker">We’re not insurance</div>
-          <h2>We’re better.</h2>
-          <p>Hannah is a Membership model built around care, access, and peace of mind.</p>
-        </div>
-        <div class="proof-grid">
-          <div class="proof-item"><span class="check">✓</span>No Co-pays</div>
-          <div class="proof-item"><span class="check">✓</span>No Deductibles</div>
-          <div class="proof-item"><span class="check">✓</span>No Maximums</div>
-          <div class="proof-item"><span class="check">✓</span>Emergency Care</div>
-          <div class="proof-item"><span class="check">✓</span>24/7/365 Access</div>
-        </div>
-      </div>
-    </div>
-
-    <section id="why">
-      <div class="container split">
+     <section id="why" class="join-hannah-photo">
+      <div class="container join-content">
         <div>
           <div class="section-kicker">Join Hannah the Pet Society</div>
           <h2 class="section-heading">Membership starts with joining Hannah the Pet Society.</h2>
-          <p class="section-intro">Hannah the Pet Society proudly partners with Hannah Pet Hospital, giving Members exclusive access to Total Lifetime Care® plans designed to support Pets through every stage of life.</p>
+          <p class="section-intro">
+            Hannah the Pet Society proudly partners with Hannah Pet Hospital, giving Members exclusive access to Total Lifetime Care® plans designed to support Pets through every stage of life.
+          </p>
           <a class="btn btn-primary" href="#join">Become a Hannah Member</a>
-        </div>
-        <div>
-          <div class="blackboard-steps" aria-label="How to join Hannah">
-            <svg class="chalk-script" viewBox="0 0 650 320" role="img" aria-label="1. Join the Society. 2. Enroll Your Pet. 3. Schedule an Exam.">
-              <text class="chalk-number" x="30" y="72">1.</text>
-              <text x="96" y="72">Join the Society</text>
-              <path class="chalk-underline" d="M95 88 C190 100, 330 96, 480 88" />
-
-              <text class="chalk-number" x="30" y="162">2.</text>
-              <text x="96" y="162">Enroll Your Pet</text>
-              <path class="chalk-underline" d="M95 178 C180 190, 305 186, 438 178" />
-
-              <text class="chalk-number" x="30" y="252">3.</text>
-              <text x="96" y="252">Schedule an Exam</text>
-              <path class="chalk-underline" d="M95 268 C190 280, 340 276, 506 268" />
-            </svg>
-          </div>
         </div>
       </div>
     </section>
