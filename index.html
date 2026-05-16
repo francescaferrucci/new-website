@@ -497,78 +497,99 @@
 
     .blackboard-steps {
       background:
-        linear-gradient(90deg, rgba(31, 59, 84, 0.035) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
-        #f7f8f6;
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        var(--hannah-navy);
       background-size: 18px 18px, 18px 18px;
-      border: 3px solid var(--hannah-navy);
+      border: 8px solid #6b4b2a;
       border-radius: 16px;
-      padding: clamp(28px, 5vw, 46px);
-      box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 48px);
+      box-shadow: var(--shadow), inset 0 0 42px rgba(0, 0, 0, 0.28);
       position: relative;
       overflow: hidden;
+      min-height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .blackboard-steps::before {
       content: "";
       position: absolute;
-      inset: 14px;
-      border: 1px dashed rgba(31, 59, 84, 0.22);
-      border-radius: 10px;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(255,255,255,0.08), transparent 18%),
+        radial-gradient(circle at 72% 64%, rgba(255,255,255,0.05), transparent 20%),
+        linear-gradient(120deg, rgba(255,255,255,0.035), transparent 35%, rgba(255,255,255,0.025));
       pointer-events: none;
+      opacity: 0.75;
     }
 
-    .script-step {
+    .chalk-script {
       position: relative;
       z-index: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      color: var(--hannah-navy);
-      font-family: 'Teen', ui-sans-serif, system-ui, sans-serif;
+      width: min(620px, 100%);
+      height: auto;
+      overflow: visible;
+    }
+
+    .chalk-script text {
+      font-family: "Comic Sans MS", "Bradley Hand", "Segoe Print", cursive;
+      font-size: 40px;
       font-weight: 700;
-      font-size: clamp(1.35rem, 2.4vw, 2.3rem);
-      line-height: 1.18;
-      margin: 0 0 28px;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      border-right: 3px solid var(--hannah-orange);
-      animation: writeLine 1.6s steps(32, end) forwards, caretBlink 0.75s step-end infinite;
+      fill: transparent;
+      stroke: rgba(255, 255, 255, 0.95);
+      stroke-width: 1.25px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      filter: drop-shadow(0 0 1px rgba(255,255,255,0.4));
+      animation: chalkWrite 2.6s ease forwards;
     }
 
-    .script-step:last-child {
-      margin-bottom: 0;
+    .chalk-script text:nth-of-type(1) { animation-delay: 0.2s; }
+    .chalk-script text:nth-of-type(2) { animation-delay: 1.8s; }
+    .chalk-script text:nth-of-type(3) { animation-delay: 3.4s; }
+
+    .chalk-script .chalk-number {
+      fill: transparent;
+      stroke: var(--hannah-yellow);
     }
 
-    .script-step:nth-child(1) {
-      animation-delay: 0.2s, 0.2s;
-      max-width: 20ch;
+    .chalk-underline {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.72);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 420;
+      stroke-dashoffset: 420;
+      animation: chalkLine 1s ease forwards;
     }
 
-    .script-step:nth-child(2) {
-      animation-delay: 1.9s, 1.9s;
-      max-width: 19ch;
+    .chalk-underline:nth-of-type(4) { animation-delay: 1.45s; }
+    .chalk-underline:nth-of-type(5) { animation-delay: 3.05s; }
+    .chalk-underline:nth-of-type(6) { animation-delay: 4.65s; }
+
+    @keyframes chalkWrite {
+      0% {
+        stroke-dashoffset: 900;
+        fill: transparent;
+        opacity: 0.25;
+      }
+      72% {
+        fill: transparent;
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        fill: rgba(255, 255, 255, 0.92);
+        opacity: 1;
+      }
     }
 
-    .script-step:nth-child(3) {
-      animation-delay: 3.6s, 3.6s;
-      max-width: 22ch;
-    }
-
-    .script-step .script-number {
-      color: var(--hannah-orange);
-      flex: 0 0 auto;
-    }
-
-    @keyframes writeLine {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes caretBlink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: var(--hannah-orange); }
+    @keyframes chalkLine {
+      to { stroke-dashoffset: 0; }
     }
 
     .step-card,
@@ -1041,10 +1062,15 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .script-step {
+      .chalk-script text,
+      .chalk-underline {
         animation: none;
-        width: auto;
-        border-right: 0;
+        stroke-dashoffset: 0;
+        fill: rgba(255,255,255,0.92);
+      }
+
+      .chalk-script .chalk-number {
+        fill: var(--hannah-yellow);
       }
     }
 
@@ -1133,21 +1159,13 @@
         width: 100%;
       }
 
-      .script-step {
-        white-space: normal;
-        width: auto;
-        animation: fadeWrite 0.8s ease forwards;
-        opacity: 0;
-        border-right: 0;
+      .blackboard-steps {
+        min-height: 260px;
+        padding: 24px;
       }
 
-      .script-step:nth-child(1) { animation-delay: 0.15s; }
-      .script-step:nth-child(2) { animation-delay: 0.45s; }
-      .script-step:nth-child(3) { animation-delay: 0.75s; }
-
-      @keyframes fadeWrite {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
+      .chalk-script text {
+        font-size: 36px;
       }
     }
   </style>
@@ -1233,9 +1251,19 @@
         </div>
         <div>
           <div class="blackboard-steps" aria-label="How to join Hannah">
-            <p class="script-step"><span class="script-number">1.</span> Join the Society</p>
-            <p class="script-step"><span class="script-number">2.</span> Enroll Your Pet</p>
-            <p class="script-step"><span class="script-number">3.</span> Schedule an Exam</p>
+            <svg class="chalk-script" viewBox="0 0 650 320" role="img" aria-label="1. Join the Society. 2. Enroll Your Pet. 3. Schedule an Exam.">
+              <text class="chalk-number" x="30" y="72">1.</text>
+              <text x="96" y="72">Join the Society</text>
+              <path class="chalk-underline" d="M95 88 C190 100, 330 96, 480 88" />
+
+              <text class="chalk-number" x="30" y="162">2.</text>
+              <text x="96" y="162">Enroll Your Pet</text>
+              <path class="chalk-underline" d="M95 178 C180 190, 305 186, 438 178" />
+
+              <text class="chalk-number" x="30" y="252">3.</text>
+              <text x="96" y="252">Schedule an Exam</text>
+              <path class="chalk-underline" d="M95 268 C190 280, 340 276, 506 268" />
+            </svg>
           </div>
         </div>
       </div>
@@ -1445,3 +1473,4 @@
   </footer>
 </body>
 </html>
+
