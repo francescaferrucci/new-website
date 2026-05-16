@@ -1039,6 +1039,49 @@
       font-size: 0.9rem;
     }
 
+    .join-hannah-photo {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--cream);
+      padding: 105px 0;
+    }
+    
+    .join-hannah-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("HPH_Photo3.png");
+      background-position: right center;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    
+    .join-hannah-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        var(--cream) 0%,
+        rgba(247, 248, 246, 0.98) 28%,
+        rgba(247, 248, 246, 0.82) 45%,
+        rgba(247, 248, 246, 0.35) 62%,
+        rgba(247, 248, 246, 0) 78%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .join-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .join-content > div {
+      max-width: 620px;
+    }
+
     @media (max-width: 1000px) {
       .nav-links,
       .phone {
@@ -1204,46 +1247,19 @@
 
       .chalk-script text {
         font-size: 36px;
+      }     
+
+    @media (max-width: 900px) {
+      .join-hannah-photo::before {
+        background:
+          linear-gradient(90deg,
+            var(--cream) 0%,
+            rgba(247, 248, 246, 0.96) 55%,
+            rgba(247, 248, 246, 0.5) 100%),
+          url('HPH_Photo3.png') 70% center / cover no-repeat;
       }
-
-     .join-hannah-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("HPH_Photo3.png");
-  background-position: right center;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
-.join-hannah-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    var(--cream) 0%,
-    rgba(247, 248, 246, 0.98) 28%,
-    rgba(247, 248, 246, 0.82) 45%,
-    rgba(247, 248, 246, 0.35) 62%,
-    rgba(247, 248, 246, 0) 78%
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-@media (max-width: 900px) {
-  .join-hannah-photo::before {
-    background:
-      linear-gradient(90deg,
-        var(--cream) 0%,
-        rgba(247, 248, 246, 0.96) 55%,
-        rgba(247, 248, 246, 0.5) 100%),
-      url('HPH_Photo3.png') 70% center / cover no-repeat;
-  }
-}
     }
+
   </style>
 </head>
 <body>
