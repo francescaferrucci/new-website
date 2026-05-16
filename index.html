@@ -1309,6 +1309,55 @@
         max-width: 100%;
       }
 
+      .doctor-video-section {
+        background-color: var(--warm-cream);
+        background-image:
+          linear-gradient(90deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(31, 59, 84, 0.018) 1px, transparent 1px);
+        background-size: 7px 7px, 9px 9px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .doctor-video-wrap {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 52px;
+        align-items: center;
+      }
+      
+      .doctor-video-card {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--hannah-navy);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      
+      .doctor-video-card::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid rgba(255,255,255,0.26);
+        border-radius: calc(var(--radius) - 4px);
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      .doctor-video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+      }
+      
+      @media (max-width: 1000px) {
+        .doctor-video-wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+
     }
 
   </style>
@@ -1446,6 +1495,34 @@
       </div>
     </section>
 
+    <section id="doctor-video" class="doctor-video-section">
+      <div class="container doctor-video-wrap">
+        <div class="doctor-video-copy">
+          <div class="section-kicker">Meet our medical team</div>
+          <h2 class="section-heading">Care guided by doctors who believe Pets deserve more.</h2>
+          <p class="section-intro">
+            Hear from Dr. Horner about Hannah’s approach to veterinary care and how Total Lifetime Care® helps remove financial fear from medical decisions.
+          </p>
+          <a class="btn btn-primary" href="#join">Become a Member</a>
+        </div>
+    
+        <div class="doctor-video-card">
+          <video
+            id="doctorVideo"
+            class="doctor-video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="HPH_Photo2.png"
+            controls
+          >
+            <source src="Dr. Horner Short.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
     <section class="heritage-photo-strip" aria-label="Hannah Pet Hospital care moments">
       <div class="strip-photo"></div>
       <div class="strip-photo"></div>
@@ -1494,6 +1571,26 @@
       <div class="copyright">© 2026 Hannah Pet Hospital. All Rights Reserved.</div>
     </div>
   </footer>
+  <script>
+    const doctorVideo = document.getElementById("doctorVideo");
+  
+    if (doctorVideo) {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              doctorVideo.play().catch(() => {});
+            } else {
+              doctorVideo.pause();
+            }
+          });
+        },
+        { threshold: 0.45 }
+      );
+  
+      observer.observe(doctorVideo);
+    }
+  </script>
 </body>
 </html>
 
