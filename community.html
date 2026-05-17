@@ -836,8 +836,67 @@
         grid-column: 1;
       }
     }
-    /* IMPACT SECTION */
 
+    /* IMPACT TICKER RIBBON */
+
+    .impact-ribbon {
+      position: relative;
+      overflow: hidden;
+      background: var(--hannah-orange);
+      border-top: 1px solid rgba(255,255,255,0.24);
+      border-bottom: 1px solid rgba(31,59,84,0.16);
+      box-shadow: 0 12px 34px rgba(31,59,84,0.16);
+    }
+    
+    .impact-ribbon-track {
+      display: flex;
+      width: max-content;
+      animation: impactRibbonScroll 32s linear infinite;
+    }
+    
+    .impact-ribbon-group {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      padding: 16px 18px;
+      color: white;
+      font-weight: 900;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+    }
+    
+    .impact-ribbon-group span {
+      display: inline-flex;
+      align-items: center;
+      gap: 34px;
+    }
+    
+    .impact-ribbon-group span::after {
+      content: "♥";
+      color: var(--hannah-yellow, #fdd757);
+      font-size: 1rem;
+      line-height: 1;
+    }
+    
+    @keyframes impactRibbonScroll {
+      from {
+        transform: translateX(0);
+      }
+    
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .impact-ribbon-track {
+        animation: none;
+      }
+    }
+
+     /* IMPACT SECTION */
       .society-impact {
         position: relative;
         overflow: hidden;
@@ -1430,6 +1489,28 @@
           <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
             Visit Hannah the Pet Society
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-ribbon" aria-label="Community impact highlights">
+      <div class="impact-ribbon-track">
+        <div class="impact-ribbon-group">
+          <span>Veteran Program</span>
+          <span>Classroom Pet Program</span>
+          <span>Foster Family Network</span>
+          <span>Helping Hand of the Week</span>
+          <span>Pet Placement Support</span>
+          <span>Community Outreach</span>
+        </div>
+    
+        <div class="impact-ribbon-group" aria-hidden="true">
+          <span>Veteran Program</span>
+          <span>Classroom Pet Program</span>
+          <span>Foster Family Network</span>
+          <span>Helping Hand of the Week</span>
+          <span>Pet Placement Support</span>
+          <span>Community Outreach</span>
         </div>
       </div>
     </section>
