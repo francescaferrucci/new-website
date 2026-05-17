@@ -349,93 +349,56 @@
       align-items: stretch;
       min-height: 620px;
     }
+
+    .scroll-benefits {
+      position: relative;
+      margin: 38px 0 34px;
+      height: clamp(64px, 8vw, 96px);
+      overflow: hidden;
+    }
+    
+    .scroll-benefits::before,
+    .scroll-benefits::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 22px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    .scroll-benefits::before {
+      top: 0;
+      background: linear-gradient(180deg, var(--cream), rgba(247,248,246,0));
+    }
+    
+    .scroll-benefits::after {
+      bottom: 0;
+      background: linear-gradient(0deg, var(--cream), rgba(247,248,246,0));
+    }
+    
+    .scroll-benefits-track {
+      display: flex;
+      flex-direction: column;
+      transform: translateY(0);
+      will-change: transform;
+    }
+    
+    .scroll-benefits-track span {
+      height: clamp(64px, 8vw, 96px);
+      display: flex;
+      align-items: center;
+      color: var(--hannah-blue);
+      font-size: clamp(2.15rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      font-weight: 700;
+    }
     
     .tlc-feature-copy {
       position: relative;
       z-index: 2;
-    }
-
-    .rotating-benefits {
-      margin: 38px 0 34px;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .rotating-text {
-      position: relative;
-      height: 68px;
-      width: 100%;
-      overflow: hidden;
-    }
-    
-    .rotating-text .text {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-    
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      font-weight: 700;
-    
-      color: var(--hannah-blue);
-    
-      opacity: 0;
-      transform: translateY(100%);
-      animation: rotateBenefit 12s linear infinite;
-    }
-    
-    .rotating-text .text:nth-child(1) {
-      animation-delay: 0s;
-    }
-    
-    .rotating-text .text:nth-child(2) {
-      animation-delay: 2s;
-    }
-    
-    .rotating-text .text:nth-child(3) {
-      animation-delay: 4s;
-    }
-    
-    .rotating-text .text:nth-child(4) {
-      animation-delay: 6s;
-    }
-    
-    .rotating-text .text:nth-child(5) {
-      animation-delay: 8s;
-    }
-    
-    .rotating-text .text:nth-child(6) {
-      animation-delay: 10s;
-    }
-    
-    @keyframes rotateBenefit {
-      0% {
-        opacity: 0;
-        transform: translateY(100%);
-      }
-    
-      8% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    
-      24% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    
-      32% {
-        opacity: 0;
-        transform: translateY(-100%);
-      }
-    
-      100% {
-        opacity: 0;
-        transform: translateY(-100%);
-      }
     }
 
     .tlc-cat-photo {
@@ -667,6 +630,34 @@
   </style>
 </head>
 
+<script>
+  const benefitsWrap = document.querySelector(".scroll-benefits");
+  const benefitsTrack = document.querySelector(".scroll-benefits-track");
+
+  if (benefitsWrap && benefitsTrack) {
+    const benefitItems = benefitsTrack.querySelectorAll("span");
+
+    function updateScrollBenefits() {
+      const rect = benefitsWrap.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const start = windowHeight * 0.75;
+      const end = windowHeight * 0.25;
+      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+
+      const maxIndex = benefitItems.length - 1;
+      const itemHeight = benefitItems[0].offsetHeight;
+      const y = -(progress * maxIndex * itemHeight);
+
+      benefitsTrack.style.transform = `translateY(${y}px)`;
+    }
+
+    window.addEventListener("scroll", updateScrollBenefits, { passive: true });
+    window.addEventListener("resize", updateScrollBenefits);
+    updateScrollBenefits();
+  }
+</script>
+  
 <body>
 
   <header>
@@ -730,16 +721,16 @@
         behavior support, and more.
       </p>
 
-      <div class="rotating-benefits">
-      <div class="rotating-text">
-        <span class="text">Unlimited Exams</span>
-        <span class="text">Preventive Care</span>
-        <span class="text">Emergency Care</span>
-        <span class="text">Medications</span>
-        <span class="text">Behavior Support</span>
-        <span class="text">Peace of Mind</span>
+      <div class="scroll-benefits" aria-label="Total Lifetime Care benefits">
+        <div class="scroll-benefits-track">
+          <span>Unlimited Exams</span>
+          <span>Preventive Care</span>
+          <span>Emergency Care</span>
+          <span>Medications</span>
+          <span>Behavior Support</span>
+          <span>Peace of Mind</span>
+        </div>
       </div>
-    </div>
 
       <a class="btn btn-primary" href="index.html#join">Become a Hannah Member</a>
     </div>
