@@ -465,7 +465,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(320px, 0.7fr) minmax(760px, 1.3fr);
+      grid-template-columns: minmax(320px, 0.85fr) minmax(520px, 1.15fr);
       gap: 72px;
       align-items: center;
       width: 100%;
@@ -478,12 +478,13 @@
     .member-video-frame {
       position: relative;
       width: 100%;
+      max-width: 760px;
       aspect-ratio: 16 / 9;
       border-radius: calc(var(--radius) + 4px);
       overflow: hidden;
       background: var(--hannah-navy);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.16);
     }
     
     .member-video-frame iframe {
