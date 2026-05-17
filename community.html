@@ -896,6 +896,31 @@
       }
     }
 
+    /* REVERSE RIBBON */
+
+      .reverse-ribbon {
+        background: var(--hannah-blue);
+      }
+      
+      .reverse-ribbon .impact-ribbon-track {
+        animation: reverseRibbonScroll 34s linear infinite;
+      }
+      
+      .reverse-ribbon .impact-ribbon-group span::after {
+        color: rgba(255,255,255,0.78);
+      }
+      
+      @keyframes reverseRibbonScroll {
+      
+        from {
+          transform: translateX(-50%);
+        }
+      
+        to {
+          transform: translateX(0%);
+        }
+      }
+
      /* IMPACT SECTION */
       .society-impact {
         position: relative;
@@ -1439,6 +1464,30 @@
             <div class="step"><span>4</span>Begin life together with Hannah by your side</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="impact-ribbon reverse-ribbon" aria-label="Placement highlights">
+      <div class="impact-ribbon-track">
+    
+        <div class="impact-ribbon-group">
+          <span>Lifetime Matching Program™</span>
+          <span>Thoughtful Pet Placement</span>
+          <span>Behavior-Based Matching</span>
+          <span>Helping Pets Find Forever Homes</span>
+          <span>Support for Pet Parents</span>
+          <span>Compassionate Placement</span>
+        </div>
+    
+        <div class="impact-ribbon-group" aria-hidden="true">
+          <span>Lifetime Matching Program™</span>
+          <span>Thoughtful Pet Placement</span>
+          <span>Behavior-Based Matching</span>
+          <span>Helping Pets Find Forever Homes</span>
+          <span>Support for Pet Parents</span>
+          <span>Compassionate Placement</span>
+        </div>
+    
       </div>
     </section>
 
