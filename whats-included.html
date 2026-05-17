@@ -629,34 +629,6 @@
     }
   </style>
 </head>
-
-<script>
-  const benefitsWrap = document.querySelector(".scroll-benefits");
-  const benefitsTrack = document.querySelector(".scroll-benefits-track");
-
-  if (benefitsWrap && benefitsTrack) {
-    const benefitItems = benefitsTrack.querySelectorAll("span");
-
-    function updateScrollBenefits() {
-      const rect = benefitsWrap.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const start = windowHeight * 0.75;
-      const end = windowHeight * 0.25;
-      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-
-      const maxIndex = benefitItems.length - 1;
-      const itemHeight = benefitItems[0].offsetHeight;
-      const y = -(progress * maxIndex * itemHeight);
-
-      benefitsTrack.style.transform = `translateY(${y}px)`;
-    }
-
-    window.addEventListener("scroll", updateScrollBenefits, { passive: true });
-    window.addEventListener("resize", updateScrollBenefits);
-    updateScrollBenefits();
-  }
-</script>
   
 <body>
 
@@ -857,6 +829,34 @@
     </div>
 
   </footer>
+
+  <script>
+  const benefitsWrap = document.querySelector(".scroll-benefits");
+  const benefitsTrack = document.querySelector(".scroll-benefits-track");
+
+  if (benefitsWrap && benefitsTrack) {
+    const benefitItems = benefitsTrack.querySelectorAll("span");
+
+    function updateScrollBenefits() {
+      const rect = benefitsWrap.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const start = windowHeight * 0.75;
+      const end = windowHeight * 0.25;
+      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+
+      const maxIndex = benefitItems.length - 1;
+      const itemHeight = benefitItems[0].offsetHeight;
+      const y = -(progress * maxIndex * itemHeight);
+
+      benefitsTrack.style.transform = `translateY(${y}px)`;
+    }
+
+    window.addEventListener("scroll", updateScrollBenefits, { passive: true });
+    window.addEventListener("resize", updateScrollBenefits);
+    updateScrollBenefits();
+  }
+</script>
 
 </body>
 </html>
