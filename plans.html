@@ -444,21 +444,47 @@
     }
 
     .healthy-start-video {
+      position: relative;
       width: 100%;
       max-width: 760px;
       justify-self: end;
-      border-radius: calc(var(--radius) + 8px);
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(31, 59, 84, 0.18);
-      background: var(--hannah-navy);
-      border: 1px solid var(--border);
+    
+      border-radius: 0;
+      overflow: visible;
+    
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
-    .healthy-start-video video {
+    .healthy-start-video iframe {
       width: 100%;
-      display: block;
       aspect-ratio: 16 / 9;
-      object-fit: cover;
+      display: block;
+    
+      border: none;
+      border-radius: 22px;
+    
+      box-shadow:
+        0 24px 80px rgba(31,59,84,0.18);
+    
+      opacity: 0.98;
+    }
+
+    .healthy-start-video::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+    
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(247,248,246,0) 48%,
+          rgba(247,248,246,0.75) 100%
+        );
+    
+      pointer-events: none;
+      z-index: 2;
     }
 
     /* Sick or Injured */
@@ -818,10 +844,14 @@
         </div>
 
         <div class="healthy-start-video">
-          <video controls playsinline poster="HPH_Plans.jpg">
-            <source src="Plans Page.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <iframe
+          src="https://www.youtube.com/embed/DKfIgUSczXI?rel=0&modestbranding=1"
+          title="Healthy Start Plans"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
       </div>
     </section>
 
