@@ -60,52 +60,104 @@
 
     /* HEADER */
 
+    .container {
+      width: min(var(--max), calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       background: rgba(251, 244, 232, 0.92);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(31, 59, 84, 0.08);
     }
-
-    .nav-wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
+    
+    .nav-shell {
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
       gap: 28px;
     }
-
-    .logo img {
-      height: 54px;
-      width: auto;
-    }
-
-    .nav-links {
-      display: flex;
+    
+    .brand {
+      display: inline-flex;
       align-items: center;
-      gap: 26px;
-      font-weight: 800;
-      color: var(--hannah-navy);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
       text-decoration: none;
     }
-
-    .nav-links a:hover {
-      color: var(--hannah-blue);
+    
+    .brand-logo {
+      height: 58px;
+      width: auto;
+      display: block;
     }
-
-    .nav-cta {
-      background: var(--hannah-orange);
-      color: white !important;
-      padding: 11px 18px;
+    
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+    
+    .main-nav a {
+      color: var(--hannah-navy);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      position: relative;
+    }
+    
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 3px;
       border-radius: 999px;
+      background: var(--hannah-blue);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+    
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      transform: scaleX(1);
+    }
+    
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--hannah-orange);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 12px 20px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(245, 155, 58, 0.28);
+    }
+    
+    .nav-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 900px) {
+      .nav-shell {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+      }
+    
+      .main-nav {
+        display: none;
+      }
+    
+      .brand-logo {
+        height: 50px;
+      }
     }
 
     /* BUTTONS */
@@ -426,47 +478,58 @@
 
     .site-footer {
       background: var(--hannah-navy);
-      color: white;
-      padding: 64px 24px 32px;
+      color: #fff;
+      padding: 64px 0 30px;
     }
-
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
+    
+    .footer-grid {
       display: grid;
       grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 42px;
+      gap: 44px;
     }
-
-    .footer-logo img {
+    
+    .footer-logo {
       height: 58px;
       width: auto;
       margin-bottom: 18px;
     }
-
-    .footer-inner h4 {
-      color: var(--hannah-blue);
-      margin: 0 0 14px;
+    
+    .footer-brand p {
+      max-width: 320px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.84);
     }
-
-    .footer-inner a {
+    
+    .footer-column h4 {
+      color: var(--hannah-blue);
+      margin: 0 0 16px;
+      font-size: 1rem;
+    }
+    
+    .footer-column a {
       display: block;
-      color: white;
+      color: #fff;
       text-decoration: none;
       margin-bottom: 10px;
+      font-weight: 700;
     }
-
-    .footer-inner a:hover {
+    
+    .footer-column a:hover {
       color: var(--hannah-blue);
     }
-
+    
     .footer-bottom {
-      max-width: var(--max);
-      margin: 42px auto 0;
+      margin-top: 42px;
       padding-top: 22px;
       border-top: 1px solid rgba(255,255,255,0.18);
       font-size: 0.9rem;
-      opacity: 0.85;
+      color: rgba(255,255,255,0.78);
+    }
+    
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 900px) {
@@ -518,22 +581,27 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a href="index.html" class="logo">
-        <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital" />
-      </a>
-
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="plans.html">Plans</a>
-        <a href="whats-included.html">What’s Included</a>
-        <a href="community.html">Community</a>
-        <a href="contact.html">Contact</a>
-        <a href="join.html" class="nav-cta">Join Hannah</a>
-      </nav>
-    </div>
-  </header>
+     <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html" aria-label="Hannah Pet Hospital home">
+          <img
+            src="Hannah Logo 2colorPMS PetHospital.png"
+            alt="Hannah Pet Hospital"
+            class="brand-logo"
+          />
+        </a>
+    
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="plans.html">Plans</a>
+          <a href="whats-included.html">What’s Included</a>
+          <a href="community.html" class="active">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    
+        <a href="join.html" class="nav-button">Join Hannah</a>
+      </div>
+    </header>
 
   <main>
 
@@ -709,33 +777,38 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <a href="index.html" class="footer-logo">
-          <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital" />
-        </a>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img
+          src="Hannah Logo 2colorPMS PetHospital.png"
+          alt="Hannah Pet Hospital"
+          class="footer-logo"
+        />
         <p>
           Total Lifetime Care™ for one predictable monthly fee.
         </p>
       </div>
-
-      <div>
+  
+      <div class="footer-column">
         <h4>Explore</h4>
+        <a href="index.html">Home</a>
         <a href="plans.html">Plans</a>
         <a href="whats-included.html">What’s Included</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
       </div>
-
-      <div>
+  
+      <div class="footer-column">
         <h4>Community</h4>
         <a href="#placement-program">Placement Program</a>
         <a href="#available-pets">Available Pets</a>
-        <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener">Hannah the Pet Society</a>
+        <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener">
+          Hannah the Pet Society
+        </a>
       </div>
     </div>
-
-    <div class="footer-bottom">
+  
+    <div class="container footer-bottom">
       © 2026 Hannah Pet Hospital. All rights reserved.
     </div>
   </footer>
