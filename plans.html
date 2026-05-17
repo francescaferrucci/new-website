@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Plans | Hannah Pet Hospital</title>
 
   <style>
     @font-face {
       font-family: 'Teen';
       src: url('teen.ttf') format('truetype');
+      font-display: swap;
     }
 
     :root {
@@ -19,7 +19,6 @@
       --hannah-green: #1eb53a;
       --hannah-yellow: #fdd757;
       --hannah-navy: #1f3b54;
-
       --cream: #f7f8f6;
       --warm-cream: #ffffff;
       --text: #1f3b54;
@@ -34,6 +33,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Teen', sans-serif;
@@ -42,14 +45,15 @@
       line-height: 1.55;
     }
 
-    img {
+    img,
+    video {
       max-width: 100%;
       display: block;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .container {
@@ -57,15 +61,58 @@
       margin: 0 auto;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
 
+    .btn-primary {
+      background: var(--hannah-orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #d94f00;
+      transform: translateY(-1px);
+    }
+
+    .eyebrow {
+      color: var(--hannah-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.82rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .section-heading {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+      color: var(--hannah-navy);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 760px;
+      margin: 0 0 48px;
+    }
+
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -80,6 +127,7 @@
 
     .logo img {
       width: 178px;
+      height: auto;
     }
 
     .nav-links {
@@ -93,30 +141,7 @@
       color: var(--hannah-orange);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--hannah-orange);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #d94f00;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
+    /* Hero */
     .hero {
       position: relative;
       min-height: 620px;
@@ -125,7 +150,7 @@
       overflow: hidden;
       background: var(--hannah-navy);
     }
-    
+
     .hero::before {
       content: "";
       position: absolute;
@@ -134,29 +159,25 @@
       background:
         linear-gradient(
           90deg,
-          rgba(31,59,84,0.94) 0%,
-          rgba(31,59,84,0.86) 34%,
-          rgba(31,59,84,0.52) 58%,
-          rgba(31,59,84,0.16) 100%
+          rgba(31, 59, 84, 0.94) 0%,
+          rgba(31, 59, 84, 0.86) 34%,
+          rgba(31, 59, 84, 0.52) 58%,
+          rgba(31, 59, 84, 0.16) 100%
         ),
         url("HPH_Plans.jpg") right center / 105% auto no-repeat;
       pointer-events: none;
     }
-    
+
     .hero::after {
       content: "";
       position: absolute;
       inset: auto 0 0 0;
-      height: 120px;
+      height: 140px;
       z-index: 2;
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0) 0%,
-        var(--warm-cream) 100%
-      );
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--cream) 100%);
       pointer-events: none;
     }
-    
+
     .hero-content {
       position: relative;
       z-index: 3;
@@ -164,15 +185,6 @@
       margin-left: clamp(28px, 5vw, 86px);
       padding: 120px 0 170px;
       text-align: left;
-    }
-
-    .eyebrow {
-      color: var(--hannah-orange);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.82rem;
-      font-weight: 900;
-      margin-bottom: 18px;
     }
 
     h1 {
@@ -184,37 +196,21 @@
     }
 
     .hero p {
-      color: rgba(255,255,255,0.86);
+      color: rgba(255, 255, 255, 0.86);
       font-size: 1.2rem;
       max-width: 580px;
+      margin: 0;
     }
 
-    /* =========================
-       PLANS
-    ========================= */
-
-    .plans-section {
+    /* Main plan cards */
+    .plans-section,
+    .healthy-start-section {
       padding: 100px 0;
       background:
-        linear-gradient(90deg, rgba(31,59,84,0.025) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(31,59,84,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 59, 84, 0.025) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(31, 59, 84, 0.018) 1px, transparent 1px),
         var(--cream);
       background-size: 7px 7px, 9px 9px;
-    }
-
-    .section-heading {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-      color: var(--hannah-navy);
-    }
-
-    .section-intro {
-      color: var(--muted);
-      font-size: 1.12rem;
-      max-width: 760px;
-      margin-bottom: 48px;
     }
 
     .plan-grid {
@@ -233,12 +229,13 @@
 
     .plan-card h3 {
       font-size: 1.6rem;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
       color: var(--hannah-navy);
     }
 
     .plan-card p {
       color: var(--muted);
+      margin: 0;
     }
 
     .price {
@@ -279,130 +276,176 @@
       font-weight: 900;
     }
 
-    .healthy-start-section,
-    .sick-injured-section {
-      padding: 100px 0;
-      background:
-        linear-gradient(90deg, rgba(31,59,84,0.025) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(31,59,84,0.018) 1px, transparent 1px),
-        var(--cream);
-      background-size: 7px 7px, 9px 9px;
+    /* Healthy Start */
+    .healthy-start-section {
+      position: relative;
+      overflow: hidden;
+      padding: 110px 0;
     }
-    
-    .healthy-start-wrap,
-    .sick-injured-wrap {
+
+    .healthy-start-wrap {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 56px;
+      grid-template-columns: minmax(400px, 0.9fr) minmax(520px, 1.1fr);
+      gap: 72px;
       align-items: center;
+    }
+
+    .healthy-start-copy {
+      position: relative;
+      z-index: 2;
     }
 
     .healthy-path {
       position: relative;
-      margin-top: 42px;
+      margin: 42px 0 34px;
       padding-left: 28px;
     }
-    
+
     .healthy-path::before {
       content: "";
       position: absolute;
       left: 24px;
-      top: 18px;
-      bottom: 18px;
+      top: 24px;
+      bottom: 24px;
       width: 2px;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          rgba(81,181,224,0.45) 0 10px,
-          transparent 10px 20px
-        );
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(81, 181, 224, 0.45) 0 10px,
+        transparent 10px 20px
+      );
     }
-    
+
     .paw-step {
       position: relative;
       display: grid;
       grid-template-columns: 58px 1fr;
       gap: 20px;
       align-items: start;
-      margin-bottom: 44px;
+      margin-bottom: 38px;
+      opacity: 0;
+      transform: translateY(18px) scale(0.96);
+      animation: pawStepIn 0.7s ease forwards;
     }
-    
-    .paw-step:nth-child(even) {
+
+    .paw-step:nth-child(2),
+    .paw-step:nth-child(4) {
       margin-left: 54px;
     }
-    
+
+    .paw-step:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    .paw-step:nth-child(3) {
+      animation-delay: 0.36s;
+    }
+
+    .paw-step:nth-child(4) {
+      animation-delay: 0.54s;
+      margin-bottom: 0;
+    }
+
+    @keyframes pawStepIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
     .paw-icon {
+      position: relative;
+      z-index: 2;
       width: 48px;
       height: 48px;
       border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
-    
       color: var(--hannah-blue);
-      font-size: 1.4rem;
-    
-      background: rgba(81,181,224,0.08);
-      border: 1px solid rgba(81,181,224,0.24);
-    
+      font-size: 1.35rem;
+      background: rgba(81, 181, 224, 0.08);
+      border: 1px solid rgba(81, 181, 224, 0.24);
       backdrop-filter: blur(4px);
+      animation: pawBounce 1.9s ease-in-out infinite;
     }
-    
-    .paw-step h3 {
-      margin: 0 0 6px;
-      color: var(--hannah-navy);
-      font-size: 1.18rem;
-      line-height: 1.1;
+
+    .paw-step:nth-child(2) .paw-icon {
+      animation-delay: 0.2s;
     }
-    
-    .paw-step p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 420px;
+
+    .paw-step:nth-child(3) .paw-icon {
+      animation-delay: 0.4s;
     }
-    
+
+    .paw-step:nth-child(4) .paw-icon {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes pawBounce {
+      0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+      }
+
+      50% {
+        transform: translateY(-6px) rotate(4deg);
+      }
+    }
+
     .paw-step::after {
       content: "";
       position: absolute;
       left: 22px;
       top: 48px;
       width: 90px;
-      height: 44px;
-      border-bottom: 2px dashed rgba(81,181,224,0.28);
-      border-left: 2px dashed rgba(81,181,224,0.28);
+      height: 42px;
+      border-bottom: 2px dashed rgba(81, 181, 224, 0.28);
+      border-left: 2px dashed rgba(81, 181, 224, 0.28);
       border-bottom-left-radius: 32px;
     }
-    
+
     .paw-step:last-child::after {
       display: none;
     }
-    
-    @media (max-width: 980px) {
-      .paw-step:nth-child(even) {
-        margin-left: 0;
-      }
-    
-      .paw-step::after {
-        width: 44px;
-      }
+
+    .paw-step h3 {
+      margin: 0 0 6px;
+      color: var(--hannah-navy);
+      font-size: 1.18rem;
+      line-height: 1.1;
     }
-    
+
+    .paw-step p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 430px;
+    }
+
     .healthy-start-video {
+      width: 100%;
+      max-width: 760px;
+      justify-self: end;
       border-radius: calc(var(--radius) + 8px);
       overflow: hidden;
-      box-shadow: var(--shadow);
+      box-shadow: 0 24px 64px rgba(31, 59, 84, 0.18);
       background: var(--hannah-navy);
       border: 1px solid var(--border);
     }
-    
+
     .healthy-start-video video {
       width: 100%;
       display: block;
       aspect-ratio: 16 / 9;
       object-fit: cover;
     }
-    
+
+    /* Sick or Injured */
     .sick-injured-section {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
       background-color: var(--hannah-navy);
       background-image:
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
@@ -410,67 +453,106 @@
       background-size: 8px 8px, 10px 10px;
       color: white;
     }
-    
+
+    .sick-injured-wrap {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(480px, 1fr) minmax(520px, 1fr);
+      gap: 64px;
+      align-items: stretch;
+      min-height: 700px;
+    }
+
+    .sick-injured-image {
+      position: relative;
+      min-height: 700px;
+      margin-left: calc((100vw - min(var(--max), calc(100vw - 40px))) / -2);
+      overflow: hidden;
+    }
+
+    .sick-injured-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(31, 59, 84, 0) 0%,
+          rgba(31, 59, 84, 0.10) 46%,
+          rgba(31, 59, 84, 0.68) 78%,
+          var(--hannah-navy) 100%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(31, 59, 84, 0.14) 0%,
+          rgba(31, 59, 84, 0.30) 100%
+        );
+      pointer-events: none;
+    }
+
+    .sick-injured-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 700px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .sick-injured-copy {
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      padding: 110px 0;
+    }
+
     .sick-injured-copy .section-heading,
     .sick-injured-copy .section-intro {
       color: white;
     }
-    
+
     .sick-injured-copy .section-intro {
       opacity: 0.78;
+      margin-bottom: 34px;
     }
-    
-    .sick-injured-image {
-      border-radius: calc(var(--radius) + 8px);
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
-    
-    .sick-injured-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
+
     .path-grid div {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.16);
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      padding: 24px;
     }
-    
+
     .path-grid span {
+      display: inline-block;
       color: var(--hannah-orange);
       font-weight: 900;
       letter-spacing: 0.12em;
       font-size: 0.78rem;
+      margin-bottom: 10px;
     }
-    
+
     .path-grid h3 {
       color: white;
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      line-height: 1.1;
     }
-    
-    .path-grid p {
-      color: rgba(255,255,255,0.74);
-    }
-    
-    @media (max-width: 980px) {
-      .healthy-start-wrap,
-      .sick-injured-wrap {
-        grid-template-columns: 1fr;
-      }
-    
-      .healthy-start-features,
-      .path-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    /* =========================
-       FOOTER
-    ========================= */
 
+    .path-grid p {
+      color: rgba(255, 255, 255, 0.74);
+      margin: 0;
+    }
+
+    /* Footer */
     footer {
       background: var(--hannah-navy);
-      color: rgba(255,255,255,0.76);
+      color: rgba(255, 255, 255, 0.76);
       padding: 60px 0 30px;
     }
 
@@ -494,7 +576,7 @@
 
     .footer-logo-mark {
       width: 180px;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255, 255, 255, 0.94);
       border-radius: 14px;
       padding: 12px 16px;
       margin-bottom: 18px;
@@ -505,22 +587,10 @@
       font-size: 0.9rem;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
-
+    /* Mobile */
     @media (max-width: 980px) {
-
       .nav-links {
         display: none;
-      }
-
-      .plan-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
       }
 
       .hero {
@@ -530,18 +600,83 @@
       .hero-content {
         padding: 90px 0 140px;
       }
+
+      .plan-grid,
+      .healthy-start-wrap,
+      .sick-injured-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .healthy-start-video {
+        justify-self: center;
+        max-width: 100%;
+      }
+
+      .paw-step:nth-child(2),
+      .paw-step:nth-child(4) {
+        margin-left: 0;
+      }
+
+      .paw-step::after {
+        width: 44px;
+      }
+
+      .sick-injured-section {
+        padding: 72px 0;
+      }
+
+      .sick-injured-wrap {
+        min-height: auto;
+        gap: 38px;
+      }
+
+      .sick-injured-image {
+        margin-left: 0;
+        min-height: 360px;
+        border-radius: var(--radius);
+      }
+
+      .sick-injured-image img {
+        min-height: 360px;
+      }
+
+      .sick-injured-image::after {
+        background:
+          linear-gradient(180deg, rgba(31,59,84,0) 0%, var(--hannah-navy) 100%);
+      }
+
+      .sick-injured-copy {
+        padding: 0;
+      }
+
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .healthy-start-section,
+      .plans-section {
+        padding: 72px 0;
+      }
+    }
   </style>
 </head>
 
 <body>
-
   <header>
     <div class="container nav">
-
       <a class="logo" href="index.html">
-        <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital">
+        <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital" />
       </a>
 
       <nav class="nav-links">
@@ -552,286 +687,195 @@
         <a href="index.html#story">Our Story</a>
       </nav>
 
-      <a class="btn btn-primary" href="index.html#join">
-        Become a Member
-      </a>
-
+      <a class="btn btn-primary" href="index.html#join">Become a Member</a>
     </div>
   </header>
 
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="container hero-content">
-
-      <div class="eyebrow">
-        Plans
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">Plans</div>
+        <h1>Comprehensive care for a predictable monthly fee.</h1>
+        <p>Hannah provides comprehensive veterinary care and Pet training for a predictable, low monthly fee.</p>
       </div>
+    </section>
 
-      <h1>
-        Comprehensive care for a predictable monthly fee.
-      </h1>
+    <section class="plans-section">
+      <div class="container">
+        <h2 class="section-heading">Explore Total Lifetime Care™ plans.</h2>
+        <p class="section-intro">
+          Total Lifetime Care™ plans are available exclusively to Members of Hannah the Pet Society and are designed to support Pets through every stage of life.
+        </p>
 
-      <p>
-        Hannah provides comprehensive veterinary care and Pet training
-        for a predictable, low monthly fee.
-      </p>
-
-    </div>
-
-  </section>
-
-  <!-- PLANS -->
-
-  <section class="plans-section">
-
-    <div class="container">
-
-      <h2 class="section-heading">
-        Explore Total Lifetime Care™ plans.
-      </h2>
-
-      <p class="section-intro">
-        Total Lifetime Care™ plans are available exclusively to Members
-        of Hannah the Pet Society and are designed to support Pets through
-        every stage of life.
-      </p>
-
-      <div class="plan-grid">
-
-        <div class="plan-card">
-
-          <h3>Adult Dogs</h3>
-
-          <p>
-            Total Lifetime Care™ for adult dogs.
-          </p>
-
-          <div class="price">
-            <strong>$109</strong>
-            <small>/month starting at</small>
+        <div class="plan-grid">
+          <div class="plan-card">
+            <h3>Adult Dogs</h3>
+            <p>Total Lifetime Care™ for adult dogs.</p>
+            <div class="price"><strong>$109</strong><small>/month starting at</small></div>
+            <ul class="plan-list">
+              <li>Preventive care</li>
+              <li>Illness and injury care</li>
+              <li>Emergency care included</li>
+              <li>Behavior support</li>
+            </ul>
+            <a class="btn btn-primary" href="index.html#join">Get Quote</a>
           </div>
 
-          <ul class="plan-list">
-            <li>Preventive care</li>
-            <li>Illness and injury care</li>
-            <li>Emergency care included</li>
-            <li>Behavior support</li>
-          </ul>
-
-          <a class="btn btn-primary" href="index.html#join">
-            Get Quote
-          </a>
-
-        </div>
-
-        <div class="plan-card">
-
-          <h3>Adult Cats</h3>
-
-          <p>
-            Total Lifetime Care™ for adult cats.
-          </p>
-
-          <div class="price">
-            <strong>$89</strong>
-            <small>/month starting at</small>
+          <div class="plan-card">
+            <h3>Adult Cats</h3>
+            <p>Total Lifetime Care™ for adult cats.</p>
+            <div class="price"><strong>$89</strong><small>/month starting at</small></div>
+            <ul class="plan-list">
+              <li>Preventive care</li>
+              <li>Illness and injury care</li>
+              <li>Emergency care included</li>
+              <li>Behavior support</li>
+            </ul>
+            <a class="btn btn-primary" href="index.html#join">Get Quote</a>
           </div>
 
-          <ul class="plan-list">
-            <li>Preventive care</li>
-            <li>Illness and injury care</li>
-            <li>Emergency care included</li>
-            <li>Behavior support</li>
-          </ul>
-
-          <a class="btn btn-primary" href="index.html#join">
-            Get Quote
-          </a>
-
+          <div class="plan-card">
+            <h3>Puppies & Kittens</h3>
+            <p>Plans for the first stage of life.</p>
+            <div class="price"><strong style="font-size: 2.25rem;">Healthy Start™</strong></div>
+            <ul class="plan-list">
+              <li>Early-life veterinary care</li>
+              <li>Guidance for new Pet Parents</li>
+              <li>Behavior & training support</li>
+              <li>A strong start with Hannah</li>
+            </ul>
+            <a class="btn btn-primary" href="index.html#join">Get Quote</a>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="plan-card">
-
-          <h3>Puppies & Kittens</h3>
-
-          <p>
-            Plans for the first stage of life.
+    <section class="healthy-start-section">
+      <div class="container healthy-start-wrap">
+        <div class="healthy-start-copy">
+          <div class="eyebrow">Healthy Start™ Plans</div>
+          <h2 class="section-heading">A strong foundation for your new Pet.</h2>
+          <p class="section-intro">
+            Give your puppy or kitten the exact care they need during their crucial first year. Hannah’s Healthy Start™ plans deliver total coverage, so you can focus on bonding with your new family member.
           </p>
 
-          <div class="price">
-            <strong>Healthy Start™</strong>
+          <div class="healthy-path">
+            <div class="paw-step">
+              <div class="paw-icon">🐾</div>
+              <div>
+                <h3>Complete Preventive Care</h3>
+                <p>Office visits, wellness exams, vaccines, deworming, and medications.</p>
+              </div>
+            </div>
+
+            <div class="paw-step">
+              <div class="paw-icon">🐾</div>
+              <div>
+                <h3>Emergency Care</h3>
+                <p>Illnesses, accidents, diagnostic testing, digital x-rays, and lab work.</p>
+              </div>
+            </div>
+
+            <div class="paw-step">
+              <div class="paw-icon">🐾</div>
+              <div>
+                <h3>Spay or Neuter Surgery</h3>
+                <p>Fully covered procedures to support your Pet’s long-term health.</p>
+              </div>
+            </div>
+
+            <div class="paw-step">
+              <div class="paw-icon">🐾</div>
+              <div>
+                <h3>Training Support</h3>
+                <p>Partner with our B.E.S.T. team to raise a well-behaved dog.</p>
+              </div>
+            </div>
           </div>
-
-          <ul class="plan-list">
-            <li>Early-life veterinary care</li>
-            <li>Guidance for new Pet Parents</li>
-            <li>Behavior & training support</li>
-            <li>A strong start with Hannah</li>
-          </ul>
-
-          <a class="btn btn-primary" href="index.html#join">
-            Get Quote
-          </a>
-
         </div>
 
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="healthy-start-section">
-  <div class="container healthy-start-wrap">
-    <div class="healthy-start-copy">
-      <div class="eyebrow">Healthy Start™ Plans</div>
-      <h2 class="section-heading">A strong foundation for your new Pet.</h2>
-      <p class="section-intro">
-        Give your puppy or kitten the exact care they need during their crucial first year. Hannah’s Healthy Start™ plans deliver total coverage, so you can focus on bonding with your new family member.
-      </p>
-
-     <div class="healthy-path">
-
-      <div class="paw-step step-1">
-        <div class="paw-icon">🐾</div>
-        <div>
-          <h3>Complete Preventive Care</h3>
-          <p>Office visits, wellness exams, vaccines, deworming, and medications.</p>
+        <div class="healthy-start-video">
+          <video controls playsinline poster="HPH_Plans.jpg">
+            <source src="Plans Page.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
-    
-      <div class="paw-step step-2">
-        <div class="paw-icon">🐾</div>
-        <div>
-          <h3>Emergency Care</h3>
-          <p>Illnesses, accidents, diagnostic testing, digital x-rays, and lab work.</p>
+    </section>
+
+    <section class="sick-injured-section">
+      <div class="container sick-injured-wrap">
+        <div class="sick-injured-image">
+          <img src="Sick or Injured.png" alt="Veterinary team caring for a sick or injured Pet" />
+        </div>
+
+        <div class="sick-injured-copy">
+          <div class="eyebrow">Sick or Injured Care Plans</div>
+          <h2 class="section-heading">We are here to help your sick or injured Pet.</h2>
+          <p class="section-intro">
+            Seeing your Pet sick or in pain is difficult enough without stressing over a high, unexpected veterinary bill. We designed our Sick or Injured Pet plans to get your companion the treatment they need right away, with a payment structure that supports your family.
+          </p>
+
+          <div class="path-grid">
+            <div>
+              <span>01</span>
+              <h3>Transparent Pricing</h3>
+              <p>We assess your Pet’s needs and provide a quote that is often 30% to 40% lower than traditional vet hospitals.</p>
+            </div>
+
+            <div>
+              <span>02</span>
+              <h3>Half the Cost Deferred</h3>
+              <p>We immediately defer 50% of the cost. This amount is only owed if you ever decide to cancel your membership.</p>
+            </div>
+
+            <div>
+              <span>03</span>
+              <h3>Manageable Installments</h3>
+              <p>You can pay the active 50% balance in 12 simple monthly payments, or all at once.</p>
+            </div>
+
+            <div>
+              <span>04</span>
+              <h3>Focus on Healing</h3>
+              <p>We treat your Pet right away so you can focus on helping them recover.</p>
+            </div>
+          </div>
         </div>
       </div>
-    
-      <div class="paw-step step-3">
-        <div class="paw-icon">🐾</div>
-        <div>
-          <h3>Spay or Neuter Surgery</h3>
-          <p>Fully covered procedures to support your Pet’s long-term health.</p>
-        </div>
-      </div>
-    
-      <div class="paw-step step-4">
-        <div class="paw-icon">🐾</div>
-        <div>
-          <h3>Training Support</h3>
-          <p>Partner with our B.E.S.T. team to raise a well-behaved dog.</p>
-        </div>
-      </div>
-    
-    </div>
-
-    <div class="healthy-start-video">
-      <video controls playsinline poster="HPH_Plans.jpg">
-        <source src="Plans Page.mp4" type="video/mp4" />
-      </video>
-    </div>
-  </div>
-</section>
-
-<section class="sick-injured-section">
-  <div class="container sick-injured-wrap">
-    <div class="sick-injured-image">
-      <img src="Sick or Injured.png" alt="Veterinary team caring for a sick or injured Pet" />
-    </div>
-
-    <div class="sick-injured-copy">
-      <div class="eyebrow">Sick or Injured Care Plans</div>
-      <h2 class="section-heading">We are here to help your sick or injured Pet.</h2>
-      <p class="section-intro">
-        Seeing your Pet sick or in pain is difficult enough without stressing over a high, unexpected veterinary bill. We designed our Sick or Injured Pet plans to get your companion the treatment they need right away, with a payment structure that supports your family.
-      </p>
-
-      <div class="path-grid">
-        <div>
-          <span>01</span>
-          <h3>Transparent Pricing</h3>
-          <p>We assess your Pet’s needs and provide a quote that is often 30% to 40% lower than traditional vet hospitals.</p>
-        </div>
-        <div>
-          <span>02</span>
-          <h3>Half the Cost Deferred</h3>
-          <p>We immediately defer 50% of the cost. This amount is only owed if you ever decide to cancel your membership.</p>
-        </div>
-        <div>
-          <span>03</span>
-          <h3>Manageable Installments</h3>
-          <p>You can pay the active 50% balance in 12 simple monthly payments, or all at once.</p>
-        </div>
-        <div>
-          <span>04</span>
-          <h3>Focus on Healing</h3>
-          <p>We treat your Pet right away so you can focus on helping them recover.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- FOOTER -->
+    </section>
+  </main>
 
   <footer>
-
     <div class="container">
-
       <div class="footer-grid">
-
         <div>
-
           <div class="footer-logo-mark">
-            <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital">
+            <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital" />
           </div>
-
-          <p>
-            Exclusive veterinary care for Hannah the Pet Society Members
-            through Total Lifetime Care™.
-          </p>
-
+          <p>Exclusive veterinary care for Hannah the Pet Society Members through Total Lifetime Care™.</p>
         </div>
 
         <div>
-
           <h4>About Hannah</h4>
-
           <a href="index.html#story">Our Story</a>
           <a href="index.html#why">Our Model</a>
-
         </div>
 
         <div>
-
           <h4>Resources</h4>
-
           <a href="whats-included.html">What’s Included</a>
           <a href="plans.html">Plans</a>
-
         </div>
 
         <div>
-
           <h4>Contact</h4>
-
           <a href="tel:15039055200">503.905.5200</a>
           <a href="index.html#locations">Locations</a>
-
         </div>
-
       </div>
 
-      <div class="copyright">
-        © 2026 Hannah Pet Hospital. All Rights Reserved.
-      </div>
-
+      <div class="copyright">© 2026 Hannah Pet Hospital. All Rights Reserved.</div>
     </div>
-
   </footer>
-
 </body>
 </html>
