@@ -7,6 +7,15 @@
   <title>Community | Hannah Pet Hospital</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    @font-face {
+      font-family: 'Teen';
+      src: url('Teen.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
     :root {
       --hannah-blue: #51b5e0;
       --hannah-navy: #1f3b54;
@@ -24,11 +33,79 @@
 
     body {
       margin: 0;
-      font-family: "Arial", sans-serif;
+      font-family: "Inter", sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at top left, rgba(81, 181, 224, 0.13), transparent 32%),
         linear-gradient(180deg, var(--cream), var(--cream-light));
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* HEADINGS */
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Teen", sans-serif;
+      font-weight: normal;
+      letter-spacing: -0.02em;
+      color: var(--hannah-navy);
+      margin-top: 0;
+    }
+    
+    h1 {
+      font-size: clamp(3.4rem, 6vw, 6.4rem);
+      line-height: 0.92;
+    }
+    
+    h2 {
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      line-height: 0.98;
+    }
+    
+    h3 {
+      font-size: 1.6rem;
+      color: var(--hannah-blue);
+    }
+    
+    /* BODY COPY */
+    
+    p,
+    .step,
+    .pet-meta,
+    .footer-column a,
+    .footer-brand p,
+    .main-nav a,
+    .btn,
+    .nav-button {
+      font-family: "Inter", sans-serif;
+    }
+    
+    /* NAV */
+    
+    .main-nav a {
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    
+    /* BUTTONS */
+    
+    .btn,
+    .nav-button {
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    
+    /* EYEBROWS */
+    
+    .eyebrow {
+      font-family: "Inter", sans-serif;
+      color: var(--hannah-orange);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
     }
 
     body::before {
