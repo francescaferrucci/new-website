@@ -509,6 +509,137 @@
       margin: 0 auto 44px;
     }
 
+    /* PLACEMENT PROGRAM */
+
+    .placement-band {
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0;
+      margin: 60px 0;
+      background-color: var(--hannah-navy);
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+    }
+    
+    .placement-band::before,
+    .placement-band::after {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .placement-band::before {
+      width: 420px;
+      height: 420px;
+      background-image: url("Heart.png");
+      right: -120px;
+      top: -120px;
+      filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
+    }
+    
+    .placement-band::after {
+      width: 380px;
+      height: 380px;
+      background-image: url("Dog.png");
+      left: -110px;
+      bottom: -110px;
+      transform: rotate(10deg);
+      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
+    }
+    
+    .placement-band .grid-two {
+      width: min(var(--max), calc(100vw - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(420px, 0.95fr) minmax(520px, 1.05fr);
+      gap: 72px;
+      align-items: center;
+    }
+    
+    .placement-band .image-card {
+      min-height: 620px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.24);
+      transform: rotate(-1deg);
+    }
+    
+    .placement-band .image-card img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .placement-band h2 {
+      color: white;
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.92;
+      margin-bottom: 24px;
+    }
+    
+    .placement-band h3 {
+      color: var(--hannah-blue);
+      font-size: 1.8rem;
+      margin-bottom: 28px;
+    }
+    
+    .placement-band p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+    
+    .placement-band .steps {
+      margin-top: 42px;
+      display: grid;
+      gap: 18px;
+    }
+    
+    .placement-band .step {
+      background: linear-gradient(90deg, rgba(255,255,255,0.94), rgba(255,255,255,0.82));
+      border-radius: 24px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.14);
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--hannah-navy);
+    }
+    
+    .placement-band .step span {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--hannah-blue);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+    
+    @media (max-width: 1100px) {
+      .placement-band .grid-two {
+        grid-template-columns: 1fr;
+      }
+    
+      .placement-band .image-card,
+      .placement-band .image-card img {
+        height: 520px;
+        min-height: unset;
+      }
+    }
     /* AVAILABLE PETS */
 
     .pet-grid {
