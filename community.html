@@ -846,6 +846,109 @@
       justify-content: center;
     }
 
+    .society-band {
+      position: relative;
+      overflow: hidden;
+      min-height: 760px;
+      padding: 120px 0;
+      background-color: var(--hannah-navy);
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+    }
+    
+    .society-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(31,59,84,0.08) 0%,
+          rgba(31,59,84,0.26) 32%,
+          rgba(31,59,84,0.82) 58%,
+          var(--hannah-navy) 76%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(31,59,84,0.08) 0%,
+          var(--hannah-navy) 100%
+        ),
+        url("charitable-work.jpg.png") left center / 62% auto no-repeat;
+      z-index: 0;
+    }
+    
+    .society-band-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: center;
+    }
+    
+    .society-copy {
+      grid-column: 2;
+      max-width: 700px;
+    }
+    
+    .society-copy h2 {
+      color: white;
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.92;
+    }
+    
+    .society-copy h3 {
+      color: var(--hannah-blue);
+      font-size: 1.8rem;
+    }
+    
+    .society-copy p {
+      color: rgba(255,255,255,0.78);
+    }
+    
+    .society-copy .impact-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+    
+    .society-copy .impact-card h4 {
+      color: white;
+      margin: 0 0 6px;
+    }
+    
+    .society-copy .impact-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+    }
+    
+    @media (max-width: 900px) {
+      .society-band {
+        min-height: auto;
+        padding: 90px 0;
+      }
+    
+      .society-band::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(31,59,84,0.70) 0%,
+            var(--hannah-navy) 48%
+          ),
+          url("charitable-work.jpg.png") center top / cover no-repeat;
+      }
+    
+      .society-band-inner {
+        grid-template-columns: 1fr;
+        padding-top: 340px;
+      }
+    
+      .society-copy {
+        grid-column: 1;
+      }
+    }
     /* FOOTER */
 
     .site-footer {
@@ -1078,56 +1181,48 @@
       </div>
     </section>
 
-    <section class="section" id="hannah-the-pet-society">
-      <div class="society-panel">
-        <div class="society-collage">
-          <img src="society-1.jpg" alt="Hannah charitable work" />
-          <img src="society-2.jpg" alt="Pet community support" />
-          <img src="society-3.jpg" alt="Classroom Pet Program" />
-        </div>
-
-       <section class="society-band" id="hannah-the-pet-society">
-        <div class="container society-band-inner">
-          <div class="society-copy">
-            <p class="eyebrow">Charitable Work</p>
-            <h2>The Charitable Heart Behind Hannah</h2>
-            <h3>Hannah the Pet Society</h3>
-      
-            <p>
-              Hannah the Pet Society helps extend Hannah’s mission beyond the hospital
-              walls by supporting programs that strengthen the bond between Pets and
-              people.
-            </p>
-      
-            <p>
-              Through placement support, education, community programs, and charitable
-              initiatives, the Society works to help more Pets find loving homes and
-              remain with the families who care for them.
-            </p>
-      
-            <div class="impact-cards">
-              <div class="impact-card">
-                <h4>Classroom Pet Program</h4>
-                <p>Helping students experience compassion, responsibility, and connection.</p>
-              </div>
-      
-              <div class="impact-card">
-                <h4>Pet Placement</h4>
-                <p>Supporting thoughtful matches between Pets and families.</p>
-              </div>
-      
-              <div class="impact-card">
-                <h4>Community Outreach</h4>
-                <p>Creating stronger support systems for Pets and Pet Parents.</p>
-              </div>
+    <section class="society-band" id="hannah-the-pet-society">
+      <div class="container society-band-inner">
+        <div class="society-copy">
+          <p class="eyebrow">Charitable Work</p>
+          <h2>The Charitable Heart Behind Hannah</h2>
+          <h3>Hannah the Pet Society</h3>
+    
+          <p>
+            Hannah the Pet Society helps extend Hannah’s mission beyond the hospital
+            walls by supporting programs that strengthen the bond between Pets and
+            people.
+          </p>
+    
+          <p>
+            Through placement support, education, community programs, and charitable
+            initiatives, the Society works to help more Pets find loving homes and
+            remain with the families who care for them.
+          </p>
+    
+          <div class="impact-cards">
+            <div class="impact-card">
+              <h4>Classroom Pet Program</h4>
+              <p>Helping students experience compassion, responsibility, and connection.</p>
             </div>
-      
-            <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
-              Visit Hannah the Pet Society
-            </a>
+    
+            <div class="impact-card">
+              <h4>Pet Placement</h4>
+              <p>Supporting thoughtful matches between Pets and families.</p>
+            </div>
+    
+            <div class="impact-card">
+              <h4>Community Outreach</h4>
+              <p>Creating stronger support systems for Pets and Pet Parents.</p>
+            </div>
           </div>
+    
+          <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
+            Visit Hannah the Pet Society
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
 
     <section class="final-cta">
       <div class="final-cta-inner">
