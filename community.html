@@ -686,8 +686,8 @@
     .society-band {
       position: relative;
       overflow: hidden;
-      min-height: 780px;
-      padding: 120px 0;
+      min-height: 720px;
+      padding: 90px 0;
       background-color: var(--hannah-navy);
       background-image:
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
@@ -699,29 +699,39 @@
       content: "";
       position: absolute;
       inset: 0;
-    
+      background:
+        url("charitable-work.jpg.png") left center / cover no-repeat;
+      z-index: 0;
+    }
+
+    .society-band .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .society-band .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      left: calc((100vw - min(var(--max), calc(100vw - 40px))) / -2);
+      right: calc((100vw - min(var(--max), calc(100vw - 40px))) / -2);
       background:
         linear-gradient(
           90deg,
-          rgba(31,59,84,0.08) 0%,
-          rgba(31,59,84,0.18) 28%,
-          rgba(31,59,84,0.72) 52%,
-          var(--hannah-navy) 70%
+          rgba(31,59,84,0.42) 0%,
+          rgba(31,59,84,0.62) 36%,
+          rgba(31,59,84,0.92) 58%,
+          var(--hannah-navy) 76%
         ),
-    
         linear-gradient(
           180deg,
           var(--hannah-navy) 0%,
-          rgba(31,59,84,0.08) 22%,
-          rgba(31,59,84,0) 28%,
-          rgba(31,59,84,0) 72%,
-          rgba(31,59,84,0.20) 92%,
+          rgba(31,59,84,0.18) 18%,
+          rgba(31,59,84,0.10) 72%,
           var(--hannah-navy) 100%
-        ),
-    
-        url("charitable-work.jpg.png") 6% center / auto 92% no-repeat;
-    
-      z-index: 0;
+        );
+      z-index: -1;
+      pointer-events: none;
     }
     
     .society-band::after {
