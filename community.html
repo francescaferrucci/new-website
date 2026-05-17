@@ -837,6 +837,140 @@
       }
     }
 
+    /* SOCIETY IMPACT CARDS */
+
+      .society-impact {
+        position: relative;
+        overflow: hidden;
+        padding: 105px 0 115px;
+        background:
+          linear-gradient(180deg, var(--hannah-navy) 0%, #244860 46%, var(--cream) 100%);
+      }
+      
+      .society-impact::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 8px 8px, 10px 10px;
+        pointer-events: none;
+      }
+      
+      .impact-header {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin: 0 auto 46px;
+        text-align: center;
+      }
+      
+      .impact-header h2 {
+        color: white;
+        font-size: clamp(3rem, 5vw, 5.4rem);
+        line-height: 0.92;
+        margin-bottom: 18px;
+      }
+      
+      .impact-header p {
+        color: rgba(255,255,255,0.76);
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .impact-program-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      
+      .impact-program-card {
+        position: relative;
+        min-height: 330px;
+        padding: 28px;
+        border-radius: 26px;
+        overflow: hidden;
+        text-decoration: none;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.82));
+        border: 1px solid rgba(255,255,255,0.42);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+        transition: transform 0.28s ease, box-shadow 0.28s ease;
+      }
+      
+      .impact-program-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -40px -70px auto;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(81,181,224,0.18);
+        transition: transform 0.28s ease;
+      }
+      
+      .impact-program-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 32px 75px rgba(0,0,0,0.24);
+      }
+      
+      .impact-program-card:hover::before {
+        transform: scale(1.35);
+      }
+      
+      .impact-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+        background: var(--hannah-blue);
+        display: grid;
+        place-items: center;
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+        box-shadow: 0 12px 28px rgba(81,181,224,0.35);
+      }
+      
+      .impact-program-card h3 {
+        color: var(--hannah-navy);
+        font-size: 1.85rem;
+        line-height: 1.02;
+        margin-bottom: 14px;
+      }
+      
+      .impact-program-card p {
+        color: #526473;
+        font-size: 1rem;
+        line-height: 1.62;
+        margin-bottom: 24px;
+      }
+      
+      .impact-link {
+        position: absolute;
+        left: 28px;
+        bottom: 26px;
+        color: var(--hannah-orange);
+        font-weight: 900;
+      }
+      
+      @media (max-width: 1050px) {
+        .impact-program-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 620px) {
+        .impact-program-grid {
+          grid-template-columns: 1fr;
+        }
+      
+        .impact-program-card {
+          min-height: 280px;
+        }
+      }
+
     /* FINAL CTA */
 
     .final-cta {
@@ -1219,6 +1353,61 @@
     
           <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
             Visit Hannah the Pet Society
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="society-impact" id="society-impact">
+      <div class="container">
+        <div class="impact-header">
+          <p class="eyebrow">Community Impact</p>
+          <h2>Programs with Heart</h2>
+          <p>
+            Through Hannah the Pet Society, we support meaningful programs that bring Pets,
+            people, and the community together.
+          </p>
+        </div>
+    
+        <div class="impact-program-grid">
+          <a class="impact-program-card" href="#">
+            <span class="impact-icon">🇺🇸</span>
+            <h3>Veteran Program</h3>
+            <p>
+              Supporting veterans through the healing companionship of Pets and the care
+              that helps keep those bonds strong.
+            </p>
+            <span class="impact-link">Learn more →</span>
+          </a>
+    
+          <a class="impact-program-card" href="#">
+            <span class="impact-icon">🏫</span>
+            <h3>Classroom Pet Program</h3>
+            <p>
+              Helping students learn compassion, responsibility, and connection through
+              the joy of classroom Pets.
+            </p>
+            <span class="impact-link">Learn more →</span>
+          </a>
+    
+          <a class="impact-program-card" href="#">
+            <span class="impact-icon">🏡</span>
+            <h3>Foster Family Network</h3>
+            <p>
+              Providing temporary homes and extra support for Pets who need safety,
+              stability, and love.
+            </p>
+            <span class="impact-link">Learn more →</span>
+          </a>
+    
+          <a class="impact-program-card" href="#">
+            <span class="impact-icon">💙</span>
+            <h3>Helping Hand of the Week</h3>
+            <p>
+              Highlighting weekly opportunities to lift up Pets, families, and community
+              partners in need.
+            </p>
+            <span class="impact-link">Learn more →</span>
           </a>
         </div>
       </div>
