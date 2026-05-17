@@ -375,7 +375,71 @@
         );
     }
     /* SECTIONS */
-
+    .band {
+      background-color: var(--hannah-navy);
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .band::before,
+    .band::after {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .band::before {
+      width: 390px;
+      height: 390px;
+      background-image: url("Heart.png");
+      right: -90px;
+      top: -90px;
+      filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
+    }
+    
+    .band::after {
+      width: 345px;
+      height: 345px;
+      background-image: url("Dog.png");
+      left: -95px;
+      bottom: -95px;
+      transform: rotate(10deg);
+      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
+    }
+    
+    .band .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .band .section-kicker,
+    .band .eyebrow {
+      color: var(--hannah-orange);
+    }
+    
+    .band .section-heading,
+    .band h2 {
+      color: var(--white);
+    }
+    
+    .band .section-intro,
+    .band p {
+      color: rgba(255,255,255,0.74);
+    }
+    
+    .band h3 {
+      color: var(--hannah-blue);
+    }
+    
     .section {
       max-width: var(--max);
       margin: 0 auto;
@@ -728,7 +792,7 @@
       </div>
     </section>
 
-    <section class="section" id="placement-program">
+    <section class="band" id="placement-program">
       <div class="grid-two">
         <div class="image-card">
           <img src="placement-program.jpg" alt="Pet Parent meeting a new Pet" />
