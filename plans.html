@@ -279,6 +279,131 @@
       font-weight: 900;
     }
 
+    .healthy-start-section,
+    .sick-injured-section {
+      padding: 100px 0;
+      background:
+        linear-gradient(90deg, rgba(31,59,84,0.025) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(31,59,84,0.018) 1px, transparent 1px),
+        var(--cream);
+      background-size: 7px 7px, 9px 9px;
+    }
+    
+    .healthy-start-wrap,
+    .sick-injured-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+    }
+    
+    .healthy-start-features,
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+    
+    .healthy-start-features div,
+    .path-grid div {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    
+    .healthy-start-features h3,
+    .path-grid h3 {
+      color: var(--hannah-navy);
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+    }
+    
+    .healthy-start-features p,
+    .path-grid p {
+      color: var(--muted);
+      margin: 0;
+    }
+    
+    .healthy-start-video {
+      border-radius: calc(var(--radius) + 8px);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--hannah-navy);
+      border: 1px solid var(--border);
+    }
+    
+    .healthy-start-video video {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    
+    .sick-injured-section {
+      background-color: var(--hannah-navy);
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+      color: white;
+    }
+    
+    .sick-injured-copy .section-heading,
+    .sick-injured-copy .section-intro {
+      color: white;
+    }
+    
+    .sick-injured-copy .section-intro {
+      opacity: 0.78;
+    }
+    
+    .sick-injured-image {
+      border-radius: calc(var(--radius) + 8px);
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+    }
+    
+    .sick-injured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .path-grid div {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.16);
+      box-shadow: none;
+    }
+    
+    .path-grid span {
+      color: var(--hannah-orange);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+    }
+    
+    .path-grid h3 {
+      color: white;
+    }
+    
+    .path-grid p {
+      color: rgba(255,255,255,0.74);
+    }
+    
+    @media (max-width: 980px) {
+      .healthy-start-wrap,
+      .sick-injured-wrap {
+        grid-template-columns: 1fr;
+      }
+    
+      .healthy-start-features,
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     /* =========================
        FOOTER
     ========================= */
@@ -497,6 +622,82 @@
     </div>
 
   </section>
+
+  <section class="healthy-start-section">
+  <div class="container healthy-start-wrap">
+    <div class="healthy-start-copy">
+      <div class="eyebrow">Healthy Start™ Plans</div>
+      <h2 class="section-heading">A strong foundation for your new Pet.</h2>
+      <p class="section-intro">
+        Give your puppy or kitten the exact care they need during their crucial first year. Hannah’s Healthy Start™ plans deliver total coverage, so you can focus on bonding with your new family member.
+      </p>
+
+      <div class="healthy-start-features">
+        <div>
+          <h3>Complete Preventive Care</h3>
+          <p>Office visits, wellness exams, vaccines, deworming, and medications.</p>
+        </div>
+        <div>
+          <h3>Emergency Care</h3>
+          <p>Illnesses, accidents, diagnostic testing, digital x-rays, and lab work.</p>
+        </div>
+        <div>
+          <h3>Spay or Neuter Surgery</h3>
+          <p>Fully covered procedures to support your Pet’s long-term health.</p>
+        </div>
+        <div>
+          <h3>Training Support</h3>
+          <p>Partner with our B.E.S.T. team to raise a well-behaved dog.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="healthy-start-video">
+      <video controls playsinline poster="HPH_Plans.jpg">
+        <source src="Plans Page.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="sick-injured-section">
+  <div class="container sick-injured-wrap">
+    <div class="sick-injured-image">
+      <img src="Sick or Injured.png" alt="Veterinary team caring for a sick or injured Pet" />
+    </div>
+
+    <div class="sick-injured-copy">
+      <div class="eyebrow">Sick or Injured Care Plans</div>
+      <h2 class="section-heading">We are here to help your sick or injured Pet.</h2>
+      <p class="section-intro">
+        Seeing your Pet sick or in pain is difficult enough without stressing over a high, unexpected veterinary bill. We designed our Sick or Injured Pet plans to get your companion the treatment they need right away, with a payment structure that supports your family.
+      </p>
+
+      <div class="path-grid">
+        <div>
+          <span>01</span>
+          <h3>Transparent Pricing</h3>
+          <p>We assess your Pet’s needs and provide a quote that is often 30% to 40% lower than traditional vet hospitals.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Half the Cost Deferred</h3>
+          <p>We immediately defer 50% of the cost. This amount is only owed if you ever decide to cancel your membership.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h3>Manageable Installments</h3>
+          <p>You can pay the active 50% balance in 12 simple monthly payments, or all at once.</p>
+        </div>
+        <div>
+          <span>04</span>
+          <h3>Focus on Healing</h3>
+          <p>We treat your Pet right away so you can focus on helping them recover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- FOOTER -->
 
