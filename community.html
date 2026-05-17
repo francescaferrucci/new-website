@@ -1,697 +1,681 @@
-/* COMMUNITY PAGE */
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Hannah Pet Hospital | Community</title>
-  <meta name="description" content="Hannah Pet Hospital provides exclusive veterinary care for Hannah the Pet Society Members through Total Lifetime Care® plans for one predictable monthly fee." />
+  <meta
+    name="description"
+    content="Explore Hannah Pet Hospital's community work, Pet placement program, available Pets, and charitable initiatives through Hannah the Pet Society."
+  />
+
   <style>
-
-:root {
-  --hannah-blue: #51b5e0;
-  --hannah-navy: #1f3b54;
-  --hannah-orange: #f59b3a;
-  --cream: #fbf4e8;
-  --soft-cream: #fff9ef;
-  --text: #243746;
-  --muted: #637381;
-  --radius: 18px;
-  --max: 1180px;
-}
-
-.community-page {
-  background:
-    radial-gradient(circle at top left, rgba(81, 181, 224, 0.12), transparent 32%),
-    linear-gradient(180deg, var(--cream), var(--soft-cream));
-  color: var(--text);
-  overflow: hidden;
-}
-
-.community-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.22;
-  background-image:
-    linear-gradient(45deg, rgba(31, 59, 84, 0.035) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(31, 59, 84, 0.035) 25%, transparent 25%);
-  background-size: 6px 6px;
-  z-index: 0;
-}
-
-.community-page > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* HERO */
-
-.community-hero {
-  position: relative;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 110px 24px 80px;
-  display: grid;
-  grid-template-columns: 1fr 0.95fr;
-  gap: 54px;
-  align-items: center;
-}
-
-.community-hero__content h1 {
-  font-size: clamp(3rem, 6vw, 5.8rem);
-  line-height: 0.95;
-  color: var(--hannah-navy);
-  margin: 0 0 24px;
-  letter-spacing: -0.04em;
-}
-
-.community-hero__content p {
-  font-size: 1.18rem;
-  line-height: 1.7;
-  max-width: 620px;
-  color: var(--text);
-}
-
-.community-hero__buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 32px;
-}
-
-.community-hero__image {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 24px 70px rgba(31, 59, 84, 0.18);
-}
-
-.community-hero__image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(251, 244, 232, 0.85), transparent 42%),
-    linear-gradient(180deg, transparent, rgba(31, 59, 84, 0.16));
-}
-
-.community-hero__image img {
-  width: 100%;
-  height: 560px;
-  object-fit: cover;
-  display: block;
-}
-
-/* GENERAL */
-
-.community-section {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 90px 24px;
-}
-
-.community-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.eyebrow {
-  color: var(--hannah-orange);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
-  margin-bottom: 12px;
-}
-
-.section-copy h2,
-.section-header h2,
-.society-copy h2,
-.community-final h2 {
-  color: var(--hannah-navy);
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1.02;
-  margin: 0 0 16px;
-  letter-spacing: -0.035em;
-}
-
-.section-copy h3,
-.society-copy h3 {
-  color: var(--hannah-blue);
-  font-size: 1.4rem;
-  margin: 0 0 24px;
-}
-
-.section-copy p,
-.section-header p,
-.society-copy p,
-.community-final p {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--text);
-}
-
-.centered {
-  max-width: 760px;
-  margin: 0 auto 44px;
-  text-align: center;
-}
-
-.image-card {
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 20px 55px rgba(31, 59, 84, 0.16);
-  transform: rotate(-1deg);
-}
-
-.image-card img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  display: block;
-}
-
-/* BUTTONS */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  transition: all 0.25s ease;
-}
-
-.btn-primary {
-  background: var(--hannah-blue);
-  color: white;
-  box-shadow: 0 12px 30px rgba(81, 181, 224, 0.35);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(81, 181, 224, 0.45);
-}
-
-.btn-secondary {
-  background: white;
-  color: var(--hannah-navy);
-  border: 1px solid rgba(31, 59, 84, 0.12);
-}
-
-.btn-secondary:hover {
-  transform: translateY(-2px);
-  border-color: var(--hannah-blue);
-}
-
-.btn-small {
-  padding: 10px 18px;
-  font-size: 0.92rem;
-  background: var(--hannah-navy);
-  color: white;
-}
-
-.text-link {
-  display: inline-block;
-  margin-top: 22px;
-  color: var(--hannah-navy);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.text-link:hover {
-  color: var(--hannah-blue);
-}
-
-/* STEPS */
-
-.steps {
-  margin-top: 30px;
-  display: grid;
-  gap: 14px;
-}
-
-.step {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(31, 59, 84, 0.08);
-  border-radius: var(--radius);
-  padding: 14px 18px;
-  box-shadow: 0 12px 30px rgba(31, 59, 84, 0.06);
-}
-
-.step span {
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--hannah-blue);
-  color: white;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-}
-
-.step p {
-  margin: 0;
-  line-height: 1.4;
-  font-weight: 700;
-}
-
-/* AVAILABLE PETS */
-
-.available-pets-section {
-  background: rgba(255, 255, 255, 0.42);
-  border-radius: 36px;
-}
-
-.pet-card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-}
-
-.pet-card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 18px 45px rgba(31, 59, 84, 0.12);
-  transition: all 0.25s ease;
-}
-
-.pet-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 60px rgba(31, 59, 84, 0.18);
-}
-
-.pet-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-}
-
-.pet-card__content {
-  padding: 24px;
-}
-
-.pet-card h3 {
-  margin: 0 0 6px;
-  color: var(--hannah-navy);
-  font-size: 1.55rem;
-}
-
-.pet-meta {
-  color: var(--hannah-orange);
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-/* SOCIETY SECTION */
-
-.society-panel {
-  background:
-    linear-gradient(135deg, rgba(81, 181, 224, 0.18), rgba(255, 255, 255, 0.78));
-  border: 1px solid rgba(31, 59, 84, 0.08);
-  border-radius: 38px;
-  padding: 36px;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 44px;
-  align-items: center;
-  box-shadow: 0 22px 60px rgba(31, 59, 84, 0.12);
-}
-
-.society-collage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.society-collage img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 22px;
-  box-shadow: 0 14px 34px rgba(31, 59, 84, 0.13);
-}
-
-.society-collage img:first-child {
-  grid-column: span 2;
-  height: 280px;
-}
-
-.society-collage img:not(:first-child) {
-  height: 190px;
-}
-
-.impact-cards {
-  display: grid;
-  gap: 14px;
-  margin: 28px 0 30px;
-}
-
-.impact-cards div {
-  background: rgba(255, 255, 255, 0.76);
-  border-radius: var(--radius);
-  padding: 18px;
-  border: 1px solid rgba(31, 59, 84, 0.08);
-}
-
-.impact-cards h4 {
-  margin: 0 0 6px;
-  color: var(--hannah-navy);
-}
-
-.impact-cards p {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.5;
-}
-
-/* FINAL CTA */
-
-.community-final {
-  margin: 40px auto 0;
-  padding: 100px 24px;
-  text-align: center;
-  background:
-    linear-gradient(rgba(31, 59, 84, 0.68), rgba(31, 59, 84, 0.68)),
-    url("community-final.jpg") center / cover no-repeat;
-  color: white;
-}
-
-.community-final > div {
-  max-width: 820px;
-  margin: 0 auto;
-}
-
-.community-final h2,
-.community-final p {
-  color: white;
-}
-
-.community-final .community-hero__buttons {
-  justify-content: center;
-}
-
-/* BRAND BACKGROUND SHAPES */
-
-.brand-shape {
-  position: absolute;
-  opacity: 0.08;
-  z-index: -1;
-}
-
-.heart-shape {
-  width: 180px;
-  height: 160px;
-  background: var(--hannah-orange);
-  left: -40px;
-  top: 70px;
-  clip-path: path("M90 150 C20 95 0 60 20 28 C38 0 75 8 90 36 C105 8 142 0 160 28 C180 60 160 95 90 150 Z");
-}
-
-.dog-shape {
-  width: 140px;
-  height: 140px;
-  right: 4%;
-  top: 30px;
-  background: var(--hannah-blue);
-  border-radius: 50% 45% 55% 50%;
-}
-
-.cat-shape {
-  width: 120px;
-  height: 120px;
-  right: 18%;
-  bottom: 24px;
-  background: var(--hannah-navy);
-  clip-path: polygon(20% 0, 38% 24%, 62% 24%, 80% 0, 88% 45%, 70% 100%, 30% 100%, 12% 45%);
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-  .community-hero,
-  .community-grid,
-  .society-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .community-hero {
-    padding-top: 70px;
-  }
-
-  .community-hero__image img,
-  .image-card img {
-    height: 420px;
-  }
-
-  .pet-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .society-panel {
-    padding: 24px;
-  }
-}
-
-@media (max-width: 560px) {
-  .community-hero__buttons {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .community-hero__image img,
-  .image-card img {
-    height: 340px;
-  }
-
-  .society-collage {
-    grid-template-columns: 1fr;
-  }
-
-  .society-collage img:first-child {
-    grid-column: auto;
-  }
-}
-    
- /<style>
-    
-    <!-- COMMUNITY PAGE -->
-<main class="community-page">
-
-  <!-- HERO -->
-  <section class="community-hero">
-    <div class="community-hero__content">
-      <p class="eyebrow">Hannah Community</p>
-      <h1>Community Starts With Compassion</h1>
-      <p>
-        From thoughtful Pet placement to lifelong support and charitable outreach,
-        Hannah is committed to helping Pets and the people who love them thrive —
-        inside and outside our hospitals.
-      </p>
-
-      <div class="community-hero__buttons">
-        <a href="#available-pets" class="btn btn-primary">Meet Available Pets</a>
-        <a href="https://www.hannahsociety.org/" target="_blank" class="btn btn-secondary">
-          Visit Hannah the Pet Society
-        </a>
-      </div>
-    </div>
-
-    <div class="community-hero__image">
-      <img src="community-hero.jpg" alt="Happy family with Pet">
-    </div>
-
-    <div class="brand-shape heart-shape"></div>
-    <div class="brand-shape dog-shape"></div>
-    <div class="brand-shape cat-shape"></div>
-  </section>
-
-
-  <!-- PLACEMENT PROGRAM -->
-  <section class="community-section placement-section" id="placement-program">
-    <div class="community-grid">
-      <div class="image-card">
-        <img src="placement-program.jpg" alt="Pet Parent meeting a new Pet">
-      </div>
-
-      <div class="section-copy">
-        <p class="eyebrow">Placement Program</p>
-        <h2>Find the Right Pet — for Life</h2>
-        <h3>Hannah’s Lifetime Matching Program™</h3>
-
+    :root {
+      --hannah-blue: #51b5e0;
+      --hannah-navy: #1f3b54;
+      --hannah-orange: #f59b3a;
+      --cream: #fbf4e8;
+      --soft-cream: #fff9ef;
+      --text: #243746;
+      --muted: #637381;
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .community-page {
+      background:
+        radial-gradient(circle at top left, rgba(81, 181, 224, 0.12), transparent 32%),
+        linear-gradient(180deg, var(--cream), var(--soft-cream));
+      overflow: hidden;
+      position: relative;
+    }
+
+    .community-page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image:
+        linear-gradient(45deg, rgba(31, 59, 84, 0.035) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(31, 59, 84, 0.035) 25%, transparent 25%);
+      background-size: 6px 6px;
+      z-index: 0;
+    }
+
+    .community-page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .community-hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 110px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 54px;
+      align-items: center;
+      position: relative;
+    }
+
+    .eyebrow {
+      color: var(--hannah-orange);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    .community-hero h1 {
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 0.95;
+      color: var(--hannah-navy);
+      margin: 0 0 24px;
+      letter-spacing: -0.04em;
+    }
+
+    .community-hero p,
+    .section-copy p,
+    .section-header p,
+    .society-copy p,
+    .community-final p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .community-hero__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--hannah-blue);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(81, 181, 224, 0.35);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--hannah-navy);
+      border: 1px solid rgba(31, 59, 84, 0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .community-hero__image,
+    .image-card {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(31, 59, 84, 0.18);
+    }
+
+    .community-hero__image {
+      position: relative;
+    }
+
+    .community-hero__image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(251, 244, 232, 0.85), transparent 42%),
+        linear-gradient(180deg, transparent, rgba(31, 59, 84, 0.16));
+    }
+
+    .community-hero__image img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+    }
+
+    .community-section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .section-copy h2,
+    .section-header h2,
+    .society-copy h2,
+    .community-final h2 {
+      color: var(--hannah-navy);
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.02;
+      margin: 0 0 16px;
+      letter-spacing: -0.035em;
+    }
+
+    .section-copy h3,
+    .society-copy h3 {
+      color: var(--hannah-blue);
+      font-size: 1.4rem;
+      margin: 0 0 24px;
+    }
+
+    .image-card {
+      transform: rotate(-1deg);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .steps {
+      margin-top: 30px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(31, 59, 84, 0.08);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      box-shadow: 0 12px 30px rgba(31, 59, 84, 0.06);
+    }
+
+    .step span {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--hannah-blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .step p {
+      margin: 0;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--hannah-navy);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .text-link:hover {
+      color: var(--hannah-blue);
+    }
+
+    .available-pets-section {
+      background: rgba(255, 255, 255, 0.42);
+      border-radius: 36px;
+    }
+
+    .centered {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .pet-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .pet-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(31, 59, 84, 0.12);
+      transition: all 0.25s ease;
+    }
+
+    .pet-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(31, 59, 84, 0.18);
+    }
+
+    .pet-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .pet-card__content {
+      padding: 24px;
+    }
+
+    .pet-card h3 {
+      margin: 0 0 6px;
+      color: var(--hannah-navy);
+      font-size: 1.55rem;
+    }
+
+    .pet-meta {
+      color: var(--hannah-orange);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .btn-small {
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      background: var(--hannah-navy);
+      color: #fff;
+    }
+
+    .society-panel {
+      background:
+        linear-gradient(135deg, rgba(81, 181, 224, 0.18), rgba(255, 255, 255, 0.78));
+      border: 1px solid rgba(31, 59, 84, 0.08);
+      border-radius: 38px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+      box-shadow: 0 22px 60px rgba(31, 59, 84, 0.12);
+    }
+
+    .society-collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .society-collage img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 14px 34px rgba(31, 59, 84, 0.13);
+    }
+
+    .society-collage img:first-child {
+      grid-column: span 2;
+      height: 280px;
+    }
+
+    .society-collage img:not(:first-child) {
+      height: 190px;
+    }
+
+    .impact-cards {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 30px;
+    }
+
+    .impact-cards div {
+      background: rgba(255, 255, 255, 0.76);
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 1px solid rgba(31, 59, 84, 0.08);
+    }
+
+    .impact-cards h4 {
+      margin: 0 0 6px;
+      color: var(--hannah-navy);
+    }
+
+    .impact-cards p {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .community-final {
+      margin: 40px auto 0;
+      padding: 100px 24px;
+      text-align: center;
+      background:
+        linear-gradient(rgba(31, 59, 84, 0.68), rgba(31, 59, 84, 0.68)),
+        url("community-final.jpg") center / cover no-repeat;
+      color: #fff;
+    }
+
+    .community-final > div {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .community-final h2,
+    .community-final p {
+      color: #fff;
+    }
+
+    .community-final .community-hero__buttons {
+      justify-content: center;
+    }
+
+    .brand-shape {
+      position: absolute;
+      opacity: 0.08;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .heart-shape {
+      width: 150px;
+      height: 135px;
+      background: var(--hannah-orange);
+      left: -30px;
+      top: 70px;
+      transform: rotate(-8deg);
+      border-radius: 45% 45% 35% 35%;
+    }
+
+    .dog-shape {
+      width: 140px;
+      height: 140px;
+      right: 4%;
+      top: 30px;
+      background: var(--hannah-blue);
+      border-radius: 50% 45% 55% 50%;
+    }
+
+    .cat-shape {
+      width: 120px;
+      height: 120px;
+      right: 18%;
+      bottom: 24px;
+      background: var(--hannah-navy);
+      clip-path: polygon(
+        20% 0,
+        38% 24%,
+        62% 24%,
+        80% 0,
+        88% 45%,
+        70% 100%,
+        30% 100%,
+        12% 45%
+      );
+    }
+
+    @media (max-width: 900px) {
+      .community-hero,
+      .community-grid,
+      .society-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .community-hero {
+        padding-top: 70px;
+      }
+
+      .community-hero__image img,
+      .image-card img {
+        height: 420px;
+      }
+
+      .pet-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .society-panel {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .community-hero__buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .community-hero__image img,
+      .image-card img {
+        height: 340px;
+      }
+
+      .society-collage {
+        grid-template-columns: 1fr;
+      }
+
+      .society-collage img:first-child {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="community-page">
+
+    <section class="community-hero">
+      <div class="community-hero__content">
+        <p class="eyebrow">Hannah Community</p>
+        <h1>Community Starts With Compassion</h1>
         <p>
-          A great relationship starts with the right match. At Hannah, we believe
-          every Pet deserves the right family, and every family deserves a Pet
-          whose personality, energy, and needs fit naturally into their life.
+          From thoughtful Pet placement to lifelong support and charitable outreach,
+          Hannah is committed to helping Pets and the people who love them thrive —
+          inside and outside our hospitals.
         </p>
 
-        <p>
-          That’s why we created the Hannah Lifetime Matching Program™ — a thoughtful
-          placement process designed with guidance from behavioral experts,
-          psychologists, and veterinary professionals to help create lasting,
-          successful bonds between Pets and Pet Parents.
-        </p>
+        <div class="community-hero__buttons">
+          <a href="#available-pets" class="btn btn-primary">Meet Available Pets</a>
+          <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-secondary">
+            Visit Hannah the Pet Society
+          </a>
+        </div>
+      </div>
 
-        <div class="steps">
-          <div class="step">
-            <span>1</span>
-            <p>Tell us about your lifestyle</p>
-          </div>
-          <div class="step">
-            <span>2</span>
-            <p>Meet Pets that fit your family</p>
-          </div>
-          <div class="step">
-            <span>3</span>
-            <p>Receive guidance and support</p>
-          </div>
-          <div class="step">
-            <span>4</span>
-            <p>Begin life together with Hannah by your side</p>
-          </div>
+      <div class="community-hero__image">
+        <img src="community-hero.jpg" alt="Happy family with a Pet" />
+      </div>
+
+      <div class="brand-shape heart-shape"></div>
+      <div class="brand-shape dog-shape"></div>
+      <div class="brand-shape cat-shape"></div>
+    </section>
+
+    <section class="community-section placement-section" id="placement-program">
+      <div class="community-grid">
+        <div class="image-card">
+          <img src="placement-program.jpg" alt="Pet Parent meeting a new Pet" />
         </div>
 
-        <a href="#available-pets" class="text-link">Explore Available Pets →</a>
-      </div>
-    </div>
-  </section>
+        <div class="section-copy">
+          <p class="eyebrow">Placement Program</p>
+          <h2>Find the Right Pet — for Life</h2>
+          <h3>Hannah’s Lifetime Matching Program™</h3>
 
-
-  <!-- AVAILABLE PETS -->
-  <section class="community-section available-pets-section" id="available-pets">
-    <div class="section-header centered">
-      <p class="eyebrow">Available Pets</p>
-      <h2>Pets Looking for Their People</h2>
-      <p>
-        Every Pet deserves a loving home and a fresh start. Browse Pets currently
-        available through Hannah and discover a companion who may be the perfect
-        fit for your family.
-      </p>
-    </div>
-
-    <div class="pet-card-grid">
-      <article class="pet-card">
-        <img src="available-pet-1.jpg" alt="Available Pet">
-        <div class="pet-card__content">
-          <h3>Maverick</h3>
-          <p class="pet-meta">Young • Playful • Sweet</p>
           <p>
-            Loves snuggles, short walks, and being close to his people.
+            A great relationship starts with the right match. At Hannah, we believe
+            every Pet deserves the right family, and every family deserves a Pet
+            whose personality, energy, and needs fit naturally into their life.
           </p>
-          <a href="#" class="btn btn-small">Meet Me</a>
-        </div>
-      </article>
 
-      <article class="pet-card">
-        <img src="available-pet-2.jpg" alt="Available Pet">
-        <div class="pet-card__content">
-          <h3>Luna</h3>
-          <p class="pet-meta">Adult • Gentle • Curious</p>
           <p>
-            A calm companion looking for a cozy place to call home.
+            That’s why we created the Hannah Lifetime Matching Program™ — a thoughtful
+            placement process designed with guidance from behavioral experts,
+            psychologists, and veterinary professionals to help create lasting,
+            successful bonds between Pets and Pet Parents.
           </p>
-          <a href="#" class="btn btn-small">Meet Me</a>
+
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <p>Tell us about your lifestyle</p>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <p>Meet Pets that fit your family</p>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <p>Receive guidance and support</p>
+            </div>
+            <div class="step">
+              <span>4</span>
+              <p>Begin life together with Hannah by your side</p>
+            </div>
+          </div>
+
+          <a href="#available-pets" class="text-link">Explore Available Pets →</a>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="pet-card">
-        <img src="available-pet-3.jpg" alt="Available Pet">
-        <div class="pet-card__content">
-          <h3>Charlie</h3>
-          <p class="pet-meta">Senior • Loyal • Loving</p>
-          <p>
-            A steady best friend with so much love still to give.
-          </p>
-          <a href="#" class="btn btn-small">Meet Me</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-
-  <!-- CHARITABLE WORK -->
-  <section class="community-section society-section" id="hannah-the-pet-society">
-    <div class="society-panel">
-      <div class="society-collage">
-        <img src="society-1.jpg" alt="Hannah charitable work">
-        <img src="society-2.jpg" alt="Pet community support">
-        <img src="society-3.jpg" alt="Classroom Pet Program">
+    <section class="community-section available-pets-section" id="available-pets">
+      <div class="section-header centered">
+        <p class="eyebrow">Available Pets</p>
+        <h2>Pets Looking for Their People</h2>
+        <p>
+          Every Pet deserves a loving home and a fresh start. Browse Pets currently
+          available through Hannah and discover a companion who may be the perfect
+          fit for your family.
+        </p>
       </div>
 
-      <div class="society-copy">
-        <p class="eyebrow">Charitable Work</p>
-        <h2>The Charitable Heart Behind Hannah</h2>
-        <h3>Hannah the Pet Society</h3>
+      <div class="pet-card-grid">
+        <article class="pet-card">
+          <img src="available-pet-1.jpg" alt="Available Pet Maverick" />
+          <div class="pet-card__content">
+            <h3>Maverick</h3>
+            <p class="pet-meta">Young • Playful • Sweet</p>
+            <p>Loves snuggles, short walks, and being close to his people.</p>
+            <a href="#" class="btn btn-small">Meet Me</a>
+          </div>
+        </article>
 
+        <article class="pet-card">
+          <img src="available-pet-2.jpg" alt="Available Pet Luna" />
+          <div class="pet-card__content">
+            <h3>Luna</h3>
+            <p class="pet-meta">Adult • Gentle • Curious</p>
+            <p>A calm companion looking for a cozy place to call home.</p>
+            <a href="#" class="btn btn-small">Meet Me</a>
+          </div>
+        </article>
+
+        <article class="pet-card">
+          <img src="available-pet-3.jpg" alt="Available Pet Charlie" />
+          <div class="pet-card__content">
+            <h3>Charlie</h3>
+            <p class="pet-meta">Senior • Loyal • Loving</p>
+            <p>A steady best friend with so much love still to give.</p>
+            <a href="#" class="btn btn-small">Meet Me</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="community-section society-section" id="hannah-the-pet-society">
+      <div class="society-panel">
+        <div class="society-collage">
+          <img src="society-1.jpg" alt="Hannah charitable work" />
+          <img src="society-2.jpg" alt="Pet community support" />
+          <img src="society-3.jpg" alt="Classroom Pet Program" />
+        </div>
+
+        <div class="society-copy">
+          <p class="eyebrow">Charitable Work</p>
+          <h2>The Charitable Heart Behind Hannah</h2>
+          <h3>Hannah the Pet Society</h3>
+
+          <p>
+            Hannah the Pet Society helps extend Hannah’s mission beyond the hospital
+            walls by supporting programs that strengthen the bond between Pets and
+            people.
+          </p>
+
+          <p>
+            Through placement support, education, community programs, and charitable
+            initiatives, the Society works to help more Pets find loving homes and
+            remain with the families who care for them.
+          </p>
+
+          <div class="impact-cards">
+            <div>
+              <h4>Classroom Pet Program</h4>
+              <p>Helping students experience compassion, responsibility, and connection.</p>
+            </div>
+
+            <div>
+              <h4>Pet Placement</h4>
+              <p>Supporting thoughtful matches between Pets and families.</p>
+            </div>
+
+            <div>
+              <h4>Community Outreach</h4>
+              <p>Creating stronger support systems for Pets and Pet Parents.</p>
+            </div>
+          </div>
+
+          <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
+            Visit Hannah the Pet Society
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="community-final">
+      <div>
+        <p class="eyebrow">Our Promise</p>
+        <h2>Every Pet Deserves a Place to Belong</h2>
         <p>
-          Hannah the Pet Society helps extend Hannah’s mission beyond the hospital
-          walls by supporting programs that strengthen the bond between Pets and
-          people.
+          Whether through lifelong care, thoughtful placement, or charitable outreach,
+          Hannah believes stronger bonds create better lives — for Pets, families,
+          and the community we share.
         </p>
 
-        <p>
-          Through placement support, education, community programs, and charitable
-          initiatives, the Society works to help more Pets find loving homes and
-          remain with the families who care for them.
-        </p>
-
-        <div class="impact-cards">
-          <div>
-            <h4>Classroom Pet Program</h4>
-            <p>Helping students experience compassion, responsibility, and connection.</p>
-          </div>
-
-          <div>
-            <h4>Pet Placement</h4>
-            <p>Supporting thoughtful matches between Pets and families.</p>
-          </div>
-
-          <div>
-            <h4>Community Outreach</h4>
-            <p>Creating stronger support systems for Pets and Pet Parents.</p>
-          </div>
+        <div class="community-hero__buttons">
+          <a href="#available-pets" class="btn btn-primary">Meet Available Pets</a>
+          <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-secondary">
+            Learn About the Society
+          </a>
         </div>
-
-        <a href="https://www.hannahsociety.org/" target="_blank" class="btn btn-primary">
-          Visit Hannah the Pet Society
-        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- FINAL CTA -->
-  <section class="community-final">
-    <div>
-      <p class="eyebrow">Our Promise</p>
-      <h2>Every Pet Deserves a Place to Belong</h2>
-      <p>
-        Whether through lifelong care, thoughtful placement, or charitable outreach,
-        Hannah believes stronger bonds create better lives — for Pets, families,
-        and the community we share.
-      </p>
-
-      <div class="community-hero__buttons">
-        <a href="#available-pets" class="btn btn-primary">Meet Available Pets</a>
-        <a href="https://www.hannahsociety.org/" target="_blank" class="btn btn-secondary">
-          Learn About the Society
-        </a>
-      </div>
-    </div>
-  </section>
-
-</main>
+  </main>
+</body>
+</html>
