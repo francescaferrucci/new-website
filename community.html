@@ -836,153 +836,20 @@
         grid-column: 1;
       }
     }
-
-    /* IMPACT BRIDGE */
-
-      .impact-bridge {
-        position: relative;
-        overflow: hidden;
-        padding: 78px 0 88px;
-      
-        background:
-          linear-gradient(
-            180deg,
-            var(--hannah-navy) 0%,
-            #244860 48%,
-            var(--cream) 100%
-          );
-      }
-      
-      .impact-bridge::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-      
-        background-image:
-          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-          linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      
-        background-size: 8px 8px, 10px 10px;
-        pointer-events: none;
-      }
-      
-      .impact-bridge::after {
-        content: "";
-        position: absolute;
-        width: 260px;
-        height: 260px;
-        right: 8%;
-        top: 20px;
-      
-        background-image: url("Heart.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-      
-        opacity: 0.10;
-        pointer-events: none;
-      
-        filter:
-          brightness(0)
-          saturate(100%)
-          invert(63%)
-          sepia(62%)
-          saturate(802%)
-          hue-rotate(165deg)
-          brightness(92%)
-          contrast(89%);
-      }
-      
-      .impact-bridge-inner {
-        position: relative;
-        z-index: 1;
-        max-width: 900px;
-        text-align: center;
-      }
-      
-      .bridge-line {
-        width: 120px;
-        height: 3px;
-        margin: 0 auto 28px;
-      
-        border-radius: 999px;
-      
-        background: var(--hannah-blue);
-      }
-      
-      .impact-bridge h2 {
-        color: white;
-      
-        font-size: clamp(2.8rem, 5vw, 5.2rem);
-        line-height: 0.94;
-      
-        margin-bottom: 22px;
-      }
-      
-      .impact-bridge p {
-        color: rgba(255,255,255,0.78);
-      
-        max-width: 760px;
-      
-        margin: 0 auto;
-      
-        font-size: 1.08rem;
-        line-height: 1.75;
-      }
-      
-      .bridge-stats {
-        margin-top: 38px;
-      
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-      }
-      
-      .bridge-stats div {
-        padding: 22px 18px;
-      
-        border-radius: 22px;
-      
-        background: rgba(255,255,255,0.10);
-      
-        border: 1px solid rgba(255,255,255,0.14);
-      
-        backdrop-filter: blur(10px);
-      }
-      
-      .bridge-stats strong {
-        display: block;
-      
-        color: white;
-      
-        font-size: 1.35rem;
-        margin-bottom: 4px;
-      }
-      
-      .bridge-stats span {
-        display: block;
-      
-        color: rgba(255,255,255,0.72);
-      
-        font-size: 0.95rem;
-      }
-      
-      @media (max-width: 700px) {
-        .bridge-stats {
-          grid-template-columns: 1fr;
-        }
-      }
     /* IMPACT SECTION */
 
       .society-impact {
         position: relative;
         overflow: hidden;
+      
         padding: 110px 0 120px;
       
         background:
           linear-gradient(
             180deg,
-            var(--cream) 0%,
-            var(--cream-light) 100%
+            var(--hannah-navy) 0%,
+            #244860 42%,
+            var(--cream) 100%
           );
       }
       
@@ -1563,39 +1430,6 @@
           <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
             Visit Hannah the Pet Society
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="impact-bridge">
-      <div class="container impact-bridge-inner">
-        <div class="bridge-line"></div>
-    
-        <p class="eyebrow">Compassion in Action</p>
-    
-        <h2>Small acts of care create lifelong impact.</h2>
-    
-        <p>
-          Through Hannah the Pet Society, compassion becomes action — connecting Pets,
-          families, students, veterans, foster homes, and community partners through
-          programs designed to make a lasting difference.
-        </p>
-    
-        <div class="bridge-stats">
-          <div>
-            <strong>Pets</strong>
-            <span>supported with care</span>
-          </div>
-    
-          <div>
-            <strong>Families</strong>
-            <span>connected with resources</span>
-          </div>
-    
-          <div>
-            <strong>Community</strong>
-            <span>strengthened through service</span>
-          </div>
         </div>
       </div>
     </section>
