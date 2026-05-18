@@ -528,16 +528,20 @@
         linear-gradient(
           90deg,
           rgba(31, 59, 84, 0) 0%,
-          rgba(31, 59, 84, 0.22) 34%,
-          rgba(31, 59, 84, 0.72) 58%,
-          rgba(31, 59, 84, 0.94) 82%,
+          rgba(31, 59, 84, 0.08) 28%,
+          rgba(31, 59, 84, 0.34) 46%,
+          rgba(31, 59, 84, 0.74) 68%,
+          rgba(31, 59, 84, 0.94) 86%,
           var(--hannah-navy) 100%
         ),
         linear-gradient(
           180deg,
-          rgba(31, 59, 84, 0.28) 0%,
-          rgba(31, 59, 84, 0.42) 100%
+          rgba(31, 59, 84, 0.20) 0%,
+          rgba(31, 59, 84, 0.38) 100%
         );
+    
+      pointer-events: none;
+    }
     
       pointer-events: none;
     }
@@ -546,8 +550,17 @@
       width: 100%;
       height: 100%;
       min-height: 700px;
+    
       object-fit: cover;
-      object-position: 72% center;
+    
+      /* moves image farther right */
+      object-position: 88% center;
+    
+      /* softens image slightly */
+      filter:
+        saturate(0.96)
+        contrast(1.02)
+        brightness(0.96);
     }
 
     .sick-injured-copy {
