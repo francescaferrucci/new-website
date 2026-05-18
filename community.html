@@ -564,19 +564,39 @@
       align-items: center;
     }
     
-    .placement-band .image-card {
-      min-height: 620px;
+    .placement-media-card {
+      position: relative;
       border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.24);
-      transform: rotate(-1deg);
+      background: #1f3b54;
+      box-shadow: 0 24px 60px rgba(0,0,0,.18);
     }
     
-    .placement-band .image-card img {
+    .placement-video-wrap {
+      position: relative;
       width: 100%;
-      height: 620px;
-      object-fit: cover;
-      object-position: center;
+      padding-top: 56.25%; /* 16:9 ratio */
+    }
+    
+    .placement-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .placement-media-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.04) 0%,
+          rgba(0,0,0,0.12) 100%
+        );
     }
     
     .placement-band h2 {
@@ -1443,8 +1463,16 @@
 
     <section class="placement-band" id="placement-program">
       <div class="grid-two">
-        <div class="image-card">
-          <img src="placement-program.jpg" alt="Pet Parent meeting a new Pet" />
+        <div class="placement-media-card">
+          <div class="placement-video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/Y8ii_AUIbcA?si=S2l1u7WHe8fkSEjw"
+              title="Hannah Placement Program"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
 
         <div>
