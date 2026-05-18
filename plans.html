@@ -546,17 +546,13 @@
       pointer-events: none;
     }
     
-    .sick-injured-image img {
-      width: 100%;
+   .sick-injured-image img {
+      width: 112%;
       height: 100%;
       min-height: 700px;
-    
       object-fit: cover;
-    
-      /* moves image farther right */
-      object-position: 108% center;
-    
-      /* softens image slightly */
+      object-position: right center;
+      transform: translateX(-6%);
       filter:
         saturate(0.96)
         contrast(1.02)
