@@ -624,29 +624,88 @@
       gap: 18px;
     }
     
+    .placement-band .steps {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    
     .placement-band .step {
-      background: linear-gradient(90deg, rgba(255,255,255,0.94), rgba(255,255,255,0.82));
-      border-radius: 24px;
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.14);
-      font-size: 1.08rem;
+      position: relative;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      display: grid;
+      justify-items: center;
+      gap: 14px;
+      text-align: center;
+    
+      color: white;
+      font-size: 1.02rem;
+      line-height: 1.35;
       font-weight: 800;
-      color: var(--hannah-navy);
+    }
+    
+    .placement-band .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: calc(50% + 44px);
+      width: calc(100% - 64px);
+      height: 2px;
+      border-top: 2px dotted rgba(81, 181, 224, 0.7);
     }
     
     .placement-band .step span {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      background: var(--hannah-blue);
-      color: white;
+      background: rgba(255,255,255,0.96);
+      border: 3px solid var(--hannah-blue);
+      color: var(--hannah-blue);
       display: grid;
       place-items: center;
       font-weight: 900;
+      font-size: 1.25rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+
+    .placement-left-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+      margin-top: -70px;
+    }
+    
+    .placement-media-card {
+      width: 100%;
+      max-width: 760px;
+    }
+    
+    .placement-video-wrap {
+      padding-top: 60%;
+    }
+    
+    .placement-request-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: var(--hannah-orange, #f28c28);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(242,140,40,.28);
+    }
+    
+    .placement-request-btn:hover {
+      transform: translateY(-2px);
+      background: #ff9d3d;
     }
     
     @media (max-width: 1100px) {
@@ -654,10 +713,34 @@
         grid-template-columns: 1fr;
       }
     
-      .placement-band .image-card,
-      .placement-band .image-card img {
-        height: 520px;
-        min-height: unset;
+      .placement-left-column {
+        margin-top: 0;
+        align-items: center;
+      }
+    
+      .placement-band .steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    
+      .placement-band .step {
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        background: rgba(255,255,255,0.94);
+        color: var(--hannah-navy);
+        padding: 18px 22px;
+        border-radius: 20px;
+      }
+    
+      .placement-band .step::after {
+        display: none;
+      }
+    
+      .placement-band .step span {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
       }
     }
     /* AVAILABLE PETS */
@@ -1463,36 +1546,42 @@
 
     <section class="placement-band" id="placement-program">
       <div class="grid-two">
-        <div class="placement-media-card">
-          <div class="placement-video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/Y8ii_AUIbcA?si=S2l1u7WHe8fkSEjw"
-              title="Hannah Placement Program"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
+        <div class="placement-left-column">
+          <div class="placement-media-card">
+            <div class="placement-video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/Y8ii_AUIbcA?si=S2l1u7WHe8fkSEjw"
+                title="Hannah Placement Program"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
           </div>
+    
+          <a href="#contact" class="placement-request-btn">
+            Request Info
+          </a>
         </div>
-
+    
         <div>
           <p class="eyebrow">Placement Program</p>
           <h2>Find the Right Pet — for Life</h2>
           <h3>Hannah’s Lifetime Matching Program™</h3>
-
+    
           <p>
             A great relationship starts with the right match. At Hannah, we believe
             every Pet deserves the right family, and every family deserves a Pet
             whose personality, energy, and needs fit naturally into their life.
           </p>
-
+    
           <p>
             That’s why we created the Hannah Lifetime Matching Program™ — a thoughtful
             placement process designed with guidance from behavioral experts,
             psychologists, and veterinary professionals to help create lasting,
             successful bonds between Pets and Pet Parents.
           </p>
-
+    
           <div class="steps">
             <div class="step"><span>1</span>Tell us about your lifestyle</div>
             <div class="step"><span>2</span>Meet Pets that fit your family</div>
