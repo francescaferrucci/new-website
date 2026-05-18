@@ -441,6 +441,199 @@
         ),
         url("Cat Photo.jpeg") 74% center / cover no-repeat;
     }
+
+    .tlc-included-launch {
+      max-width: 960px;
+      margin: 70px auto;
+      padding: 46px 32px;
+      text-align: center;
+      background: #fff7ed;
+      border-radius: 24px;
+      border: 1px solid rgba(31, 59, 84, 0.12);
+    }
+    
+    .tlc-included-launch h2 {
+      color: #1f3b54;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      margin: 8px 0 14px;
+    }
+    
+    .tlc-included-launch p {
+      color: #39556b;
+      max-width: 680px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      font-size: 0.78rem;
+      color: #51b5e0;
+    }
+    
+    .eyebrow.orange {
+      color: #f28c28;
+    }
+    
+    .tlc-popup-btn {
+      border: 0;
+      background: #f28c28;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(242, 140, 40, 0.28);
+    }
+    
+    .tlc-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+    }
+    
+    .tlc-modal.is-open {
+      display: block;
+    }
+    
+    .tlc-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(31, 59, 84, 0.72);
+      backdrop-filter: blur(4px);
+    }
+    
+    .tlc-modal-content {
+      position: relative;
+      max-width: 1060px;
+      max-height: 88vh;
+      overflow-y: auto;
+      margin: 5vh auto;
+      background: #fffaf2;
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+    }
+    
+    .tlc-modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: #1f3b54;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    
+    .tlc-modal-hero {
+      padding: 26px 10px 22px;
+      max-width: 780px;
+    }
+    
+    .tlc-modal-hero h2 {
+      color: #1f3b54;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1;
+      margin: 8px 0 16px;
+    }
+    
+    .tlc-modal-hero p {
+      color: #39556b;
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+    
+    .tlc-included-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin: 18px 0 28px;
+    }
+    
+    .tlc-included-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 18px;
+      border: 1px solid rgba(31, 59, 84, 0.12);
+      box-shadow: 0 12px 28px rgba(31, 59, 84, 0.08);
+    }
+    
+    .tlc-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #51b5e0;
+      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    
+    .tlc-included-card h3 {
+      color: #1f3b54;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 10px;
+    }
+    
+    .tlc-included-card p {
+      color: #456174;
+      line-height: 1.55;
+      font-size: 0.94rem;
+      margin: 0;
+    }
+    
+    .tlc-agreement-box {
+      background: #1f3b54;
+      color: white;
+      border-radius: 22px;
+      padding: 26px;
+    }
+    
+    .tlc-agreement-box h3 {
+      color: #f28c28;
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+    }
+    
+    .tlc-agreement-box p {
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+    
+    .tlc-agreement-box .tlc-note {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+      margin-bottom: 0;
+    }
+    
+    @media (max-width: 980px) {
+      .tlc-included-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      .tlc-modal-content {
+        margin: 3vh 16px;
+        max-height: 94vh;
+        padding: 24px;
+      }
+    }
+    
+    @media (max-width: 620px) {
+      .tlc-included-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     
      .member-video-section {
       position: relative;
@@ -725,9 +918,9 @@
         affordable monthly plan.
       </p>
 
-      <a class="btn btn-primary hero-cta" href="index.html#join">
-        Get Started
-      </a>
+      <button class="btn btn-primary" onclick="openTlcIncludedModal()">
+        See What's Included
+      </button>
 
     </div>
 
@@ -756,7 +949,7 @@
         </div>
       </div>
 
-      <a class="btn btn-primary" href="index.html#join">Become a Hannah Member</a>
+      <a class="btn btn-primary" href="index.html#included">See What's Included</a>
     </div>
 
     <div class="tlc-cat-photo" aria-label="Cat resting comfortably"></div>
@@ -885,33 +1078,138 @@
 
   </footer>
 
+  <!-- WHAT'S INCLUDED MODAL -->
+  <div class="tlc-modal" id="tlcIncludedModal" aria-hidden="true">
+    <div class="tlc-modal-overlay" onclick="closeTlcIncludedModal()"></div>
+  
+    <div class="tlc-modal-content" role="dialog" aria-modal="true">
+      <button class="tlc-modal-close" onclick="closeTlcIncludedModal()">×</button>
+  
+      <div class="tlc-modal-hero">
+        <div class="eyebrow orange">What’s Included?</div>
+  
+        <h2>Care for the expected.<br>And the unexpected.</h2>
+  
+        <p>
+          Hannah’s Total Lifetime Care™ plans include routine, illness, injury,
+          emergency, behavioral, and preventive care provided through Hannah.
+        </p>
+      </div>
+  
+      <div class="tlc-included-grid">
+  
+        <article class="tlc-included-card">
+          <div class="tlc-icon">♥</div>
+          <h3>All Preventive Care</h3>
+          <p>
+            Includes all office visits, wellness exams, vaccines,
+            deworming and medications.
+          </p>
+        </article>
+  
+        <article class="tlc-included-card">
+          <div class="tlc-icon">✚</div>
+          <h3>All Emergency Care</h3>
+          <p>
+            Includes all illnesses, accidents, diagnostic testing,
+            digital x-rays and lab work.
+          </p>
+        </article>
+  
+        <article class="tlc-included-card">
+          <div class="tlc-icon">✦</div>
+          <h3>Spay or Neuter</h3>
+          <p>
+            The decision to spay or neuter your Pet is an important one.
+            It can be the single best decision you make for long-term welfare.
+          </p>
+        </article>
+  
+        <article class="tlc-included-card">
+          <div class="tlc-icon">🐾</div>
+          <h3>Unlimited Training</h3>
+          <p>
+            Hannah’s B.E.S.T. — Behavior, Education, Support and Training —
+            team will partner with you to help you raise an ideal dog.
+          </p>
+        </article>
+  
+        <article class="tlc-included-card">
+          <div class="tlc-icon">⌁</div>
+          <h3>Microchip & License</h3>
+          <p>
+            All Hannah Pets receive a registered microchip,
+            and Hannah reimburses you for local licensing.
+          </p>
+        </article>
+  
+      </div>
+  
+      <div class="tlc-agreement-box">
+        <h3>From our Membership Agreement</h3>
+  
+        <p>
+          Hannah’s TLC plans include routine and emergency veterinary medical,
+          surgical, diagnostic, and dental care, along with therapeutic
+          medications on Hannah’s formulary when recommended and provided
+          by Hannah at Hannah locations.
+        </p>
+  
+        <p class="tlc-note">
+          Hannah is not insurance. Care is provided according to Hannah’s
+          medical standards, availability, formulary, and what Hannah
+          veterinarians determine is in the Pet’s best interest.
+        </p>
+      </div>
+  
+    </div>
+  </div>
+
   <script>
-  const benefitsWrap = document.querySelector(".scroll-benefits");
-  const benefitsTrack = document.querySelector(".scroll-benefits-track");
-
-  if (benefitsWrap && benefitsTrack) {
-    const benefitItems = benefitsTrack.querySelectorAll("span");
-
-    function updateScrollBenefits() {
-      const rect = benefitsWrap.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const start = windowHeight * 0.75;
-      const end = windowHeight * 0.25;
-      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-
-      const maxIndex = benefitItems.length - 1;
-      const itemHeight = benefitItems[0].offsetHeight;
-      const y = -(progress * maxIndex * itemHeight);
-
-      benefitsTrack.style.transform = `translateY(${y}px)`;
+    const benefitsWrap = document.querySelector(".scroll-benefits");
+    const benefitsTrack = document.querySelector(".scroll-benefits-track");
+  
+    if (benefitsWrap && benefitsTrack) {
+      const benefitItems = benefitsTrack.querySelectorAll("span");
+  
+      function updateScrollBenefits() {
+        const rect = benefitsWrap.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+  
+        const start = windowHeight * 0.75;
+        const end = windowHeight * 0.25;
+        const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+  
+        const maxIndex = benefitItems.length - 1;
+        const itemHeight = benefitItems[0].offsetHeight;
+        const y = -(progress * maxIndex * itemHeight);
+  
+        benefitsTrack.style.transform = `translateY(${y}px)`;
+      }
+  
+      window.addEventListener("scroll", updateScrollBenefits, { passive: true });
+      window.addEventListener("resize", updateScrollBenefits);
+      updateScrollBenefits();
     }
+  </script>
 
-    window.addEventListener("scroll", updateScrollBenefits, { passive: true });
-    window.addEventListener("resize", updateScrollBenefits);
-    updateScrollBenefits();
+  <script>
+  function openTlcIncludedModal() {
+    document.getElementById('tlcIncludedModal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
   }
-</script>
+  
+  function closeTlcIncludedModal() {
+    document.getElementById('tlcIncludedModal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeTlcIncludedModal();
+    }
+  });
+  </script>
 
 </body>
 </html>
