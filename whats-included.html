@@ -577,6 +577,24 @@
       font-size: 1.4rem;
       margin-bottom: 16px;
     }
+
+    .tlc-icon-image {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #51b5e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .tlc-icon-image img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
     
     .tlc-included-card h3 {
       color: #1f3b54;
@@ -918,9 +936,7 @@
         affordable monthly plan.
       </p>
 
-      <button class="btn btn-primary" onclick="openTlcIncludedModal()">
-        See What's Included
-      </button>
+      <a class="btn btn-primary" href="index.html#join">Become a Member</a>
 
     </div>
 
@@ -949,7 +965,9 @@
         </div>
       </div>
 
-      <a class="btn btn-primary" href="index.html#included">See What's Included</a>
+       <button class="btn btn-primary" onclick="openTlcIncludedModal()">
+        See What's Included
+      </button>
     </div>
 
     <div class="tlc-cat-photo" aria-label="Cat resting comfortably"></div>
@@ -1117,8 +1135,12 @@
         </article>
   
         <article class="tlc-included-card">
-          <div class="tlc-icon">✦</div>
+          <div class="tlc-icon-image">
+            <img src="Surgeon.png" alt="Spay and neuter surgery icon">
+          </div>
+        
           <h3>Spay or Neuter</h3>
+        
           <p>
             The decision to spay or neuter your Pet is an important one.
             It can be the single best decision you make for long-term welfare.
@@ -1135,8 +1157,12 @@
         </article>
   
         <article class="tlc-included-card">
-          <div class="tlc-icon">⌁</div>
+          <div class="tlc-icon-image">
+            <img src="Microchip.png" alt="Microchip icon">
+          </div>
+        
           <h3>Microchip & License</h3>
+        
           <p>
             All Hannah Pets receive a registered microchip,
             and Hannah reimburses you for local licensing.
