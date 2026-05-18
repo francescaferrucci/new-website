@@ -14,12 +14,14 @@
       src: url('Teen.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
+      font-display: swap;
     }
-    
+
     :root {
       --hannah-blue: #51b5e0;
       --hannah-navy: #1f3b54;
       --hannah-orange: #f59b3a;
+      --hannah-yellow: #fdd757;
       --cream: #fbf4e8;
       --cream-light: #fff9ef;
       --text: #243746;
@@ -31,6 +33,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
@@ -40,72 +46,6 @@
         linear-gradient(180deg, var(--cream), var(--cream-light));
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-    }
-
-    /* HEADINGS */
-
-    h1,
-    h2,
-    h3 {
-      font-family: "Teen", sans-serif;
-      font-weight: normal;
-      letter-spacing: -0.02em;
-      color: var(--hannah-navy);
-      margin-top: 0;
-    }
-    
-    h1 {
-      font-size: clamp(3.4rem, 6vw, 6.4rem);
-      line-height: 0.92;
-    }
-    
-    h2 {
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      line-height: 0.98;
-    }
-    
-    h3 {
-      font-size: 1.6rem;
-      color: var(--hannah-blue);
-    }
-    
-    /* BODY COPY */
-    
-    p,
-    .step,
-    .pet-meta,
-    .footer-column a,
-    .footer-brand p,
-    .main-nav a,
-    .btn,
-    .nav-button {
-      font-family: "Inter", sans-serif;
-    }
-    
-    /* NAV */
-    
-    .main-nav a {
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-    
-    /* BUTTONS */
-    
-    .btn,
-    .nav-button {
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    
-    /* EYEBROWS */
-    
-    .eyebrow {
-      font-family: "Inter", sans-serif;
-      color: var(--hannah-orange);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.78rem;
     }
 
     body::before {
@@ -133,166 +73,15 @@
 
     a {
       color: inherit;
-    }
-
-    /* HEADER */
-
-    .container {
-      width: min(var(--max), calc(100vw - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(251, 244, 232, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(31, 59, 84, 0.08);
-    }
-    
-    .nav-shell {
-      min-height: 82px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 28px;
-    }
-    
-    .brand {
-      display: inline-flex;
-      align-items: center;
       text-decoration: none;
     }
-    
-    .brand-logo {
-      height: 58px;
-      width: auto;
-      display: block;
-    }
-    
-    .main-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-    }
-    
-    .main-nav a {
-      color: var(--hannah-navy);
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      position: relative;
-    }
-    
-    .main-nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -8px;
-      height: 3px;
-      border-radius: 999px;
-      background: var(--hannah-blue);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.2s ease;
-    }
-    
-    .main-nav a:hover::after,
-    .main-nav a.active::after {
-      transform: scaleX(1);
-    }
-    
-    .nav-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--hannah-orange);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 900;
-      padding: 12px 20px;
-      border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(245, 155, 58, 0.28);
-    }
-    
-    .nav-button:hover {
-      transform: translateY(-2px);
-    }
-    
-    @media (max-width: 900px) {
-      .nav-shell {
-        grid-template-columns: auto auto;
-        justify-content: space-between;
-      }
-    
-      .main-nav {
-        display: none;
-      }
-    
-      .brand-logo {
-        height: 50px;
-      }
-    }
 
-    /* BUTTONS */
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-      transition: all 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--hannah-blue);
-      color: white;
-      box-shadow: 0 12px 30px rgba(81, 181, 224, 0.35);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--hannah-navy);
-      border: 1px solid rgba(31, 59, 84, 0.12);
-    }
-
-    .btn-dark {
-      background: var(--hannah-navy);
-      color: white;
-    }
-
-    /* HERO */
-
-    .community-hero {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 92px 24px 80px;
-      display: grid;
-      grid-template-columns: 1fr 0.95fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--hannah-orange);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      font-size: 0.78rem;
-      margin: 0 0 14px;
-    }
-
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
+      font-family: "Teen", sans-serif;
+      font-weight: normal;
+      letter-spacing: -0.02em;
       color: var(--hannah-navy);
       margin-top: 0;
     }
@@ -322,6 +111,126 @@
       line-height: 1.72;
     }
 
+    .container {
+      width: min(var(--max), calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--hannah-orange);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      margin: 0 0 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--hannah-orange);
+      color: white;
+      box-shadow: 0 12px 30px rgba(245, 155, 58, 0.28);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--hannah-navy);
+      border: 1px solid rgba(31, 59, 84, 0.12);
+    }
+
+    .btn-dark {
+      background: var(--hannah-navy);
+      color: white;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 247, 239, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(31, 59, 84, 0.15);
+    }
+
+    .nav {
+      min-height: 96px;
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      min-width: 210px;
+    }
+
+    .logo img {
+      width: 210px;
+      height: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--hannah-navy);
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      opacity: 0.86;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--hannah-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phone {
+      color: var(--hannah-navy);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* HERO */
+
+    .community-hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 92px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -332,23 +241,20 @@
     .hero-image {
       position: relative;
       min-height: 560px;
-      border-radius: 0;
       overflow: visible;
-      box-shadow: none;
     }
-    
+
     .hero-image img {
       width: 100%;
       height: 560px;
       object-fit: cover;
       object-position: center;
-      display: block;
-    
+
       -webkit-mask-image:
         linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%),
         linear-gradient(to bottom, black 70%, transparent 100%);
       -webkit-mask-composite: source-in;
-    
+
       mask-image:
         linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%),
         linear-gradient(to bottom, black 70%, transparent 100%);
@@ -374,72 +280,9 @@
           var(--cream) 100%
         );
     }
-    /* SECTIONS */
-    .band {
-      background-color: var(--hannah-navy);
-      background-image:
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 8px 8px, 10px 10px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .band::before,
-    .band::after {
-      content: "";
-      position: absolute;
-      background-repeat: no-repeat;
-      background-size: contain;
-      opacity: 0.16;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    .band::before {
-      width: 390px;
-      height: 390px;
-      background-image: url("Heart.png");
-      right: -90px;
-      top: -90px;
-      filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
-    }
-    
-    .band::after {
-      width: 345px;
-      height: 345px;
-      background-image: url("Dog.png");
-      left: -95px;
-      bottom: -95px;
-      transform: rotate(10deg);
-      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
-    }
-    
-    .band .container {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .band .section-kicker,
-    .band .eyebrow {
-      color: var(--hannah-orange);
-    }
-    
-    .band .section-heading,
-    .band h2 {
-      color: var(--white);
-    }
-    
-    .band .section-intro,
-    .band p {
-      color: rgba(255,255,255,0.74);
-    }
-    
-    .band h3 {
-      color: var(--hannah-blue);
-    }
-    
+
+    /* SHARED SECTIONS */
+
     .section {
       max-width: var(--max);
       margin: 0 auto;
@@ -451,49 +294,6 @@
       grid-template-columns: 0.95fr 1.05fr;
       gap: 56px;
       align-items: center;
-    }
-
-    .image-card {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 20px 55px rgba(31, 59, 84, 0.16);
-      transform: rotate(-1deg);
-    }
-
-    .image-card img {
-      height: 520px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .steps {
-      display: grid;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(255,255,255,0.74);
-      border-radius: var(--radius);
-      padding: 15px 18px;
-      border: 1px solid rgba(31,59,84,0.08);
-      box-shadow: 0 12px 30px rgba(31,59,84,0.06);
-      font-weight: 800;
-    }
-
-    .step span {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--hannah-blue);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
     }
 
     .soft-panel {
@@ -514,15 +314,15 @@
     .placement-band {
       position: relative;
       overflow: hidden;
-      padding: 120px 0;
-      margin: 60px 0;
+      padding: 120px 0 90px;
+      margin: 60px 0 0;
       background-color: var(--hannah-navy);
       background-image:
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 8px 8px, 10px 10px;
     }
-    
+
     .placement-band::before,
     .placement-band::after {
       content: "";
@@ -533,7 +333,7 @@
       pointer-events: none;
       z-index: 0;
     }
-    
+
     .placement-band::before {
       width: 420px;
       height: 420px;
@@ -542,7 +342,7 @@
       top: -120px;
       filter: brightness(0) saturate(100%) invert(84%) sepia(56%) saturate(657%) hue-rotate(358deg) brightness(103%) contrast(98%);
     }
-    
+
     .placement-band::after {
       width: 380px;
       height: 380px;
@@ -552,38 +352,32 @@
       transform: rotate(10deg);
       filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
     }
-    
+
     .placement-band .grid-two {
       width: min(var(--max), calc(100vw - 40px));
       margin: 0 auto;
       position: relative;
       z-index: 2;
-      display: grid;
       grid-template-columns: minmax(420px, 0.95fr) minmax(520px, 1.05fr);
       gap: 72px;
-      align-items: center;
     }
-    
+
+    .placement-left-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+      margin-top: -70px;
+    }
+
     .placement-media-card {
       position: relative;
+      width: 100%;
+      max-width: 760px;
       border-radius: 28px;
       overflow: hidden;
-      background: #1f3b54;
+      background: var(--hannah-navy);
       box-shadow: 0 24px 60px rgba(0,0,0,.18);
-    }
-    
-    .placement-video-wrap {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 ratio */
-    }
-    
-    .placement-video-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
     }
 
     .placement-media-card::after {
@@ -598,32 +392,58 @@
           rgba(0,0,0,0.12) 100%
         );
     }
-    
+
+    .placement-video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 60%;
+    }
+
+    .placement-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .placement-request-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: var(--hannah-orange);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(245,155,58,.28);
+    }
+
+    .placement-request-btn:hover {
+      transform: translateY(-2px);
+      background: #ff9d3d;
+    }
+
     .placement-band h2 {
       color: white;
       font-size: clamp(3rem, 5vw, 5.4rem);
       line-height: 0.92;
       margin-bottom: 24px;
     }
-    
+
     .placement-band h3 {
       color: var(--hannah-blue);
       font-size: 1.8rem;
       margin-bottom: 28px;
     }
-    
+
     .placement-band p {
       color: rgba(255,255,255,0.78);
       font-size: 1.08rem;
       line-height: 1.8;
     }
-    
-    .placement-band .steps {
-      margin-top: 42px;
-      display: grid;
-      gap: 18px;
-    }
-    
+
     .placement-band .steps {
       margin-top: 44px;
       display: grid;
@@ -631,7 +451,7 @@
       gap: 22px;
       align-items: start;
     }
-    
+
     .placement-band .step {
       position: relative;
       background: transparent;
@@ -642,13 +462,12 @@
       justify-items: center;
       gap: 14px;
       text-align: center;
-    
       color: white;
       font-size: 1.02rem;
       line-height: 1.35;
       font-weight: 800;
     }
-    
+
     .placement-band .step:not(:last-child)::after {
       content: "";
       position: absolute;
@@ -658,7 +477,7 @@
       height: 2px;
       border-top: 2px dotted rgba(81, 181, 224, 0.7);
     }
-    
+
     .placement-band .step span {
       width: 68px;
       height: 68px;
@@ -673,76 +492,72 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.18);
     }
 
-    .placement-left-column {
+    /* RIBBONS */
+
+    .impact-ribbon {
+      position: relative;
+      overflow: hidden;
+      background: var(--hannah-orange);
+      border-top: 1px solid rgba(255,255,255,0.24);
+      border-bottom: 1px solid rgba(31,59,84,0.16);
+      box-shadow: 0 12px 34px rgba(31,59,84,0.16);
+    }
+
+    .reverse-ribbon {
+      margin-top: -2px;
+      background: var(--hannah-blue);
+    }
+
+    .impact-ribbon-track {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 22px;
-      margin-top: -70px;
+      width: max-content;
+      animation: impactRibbonScroll 32s linear infinite;
     }
-    
-    .placement-media-card {
-      width: 100%;
-      max-width: 760px;
+
+    .reverse-ribbon .impact-ribbon-track {
+      animation: reverseRibbonScroll 34s linear infinite;
     }
-    
-    .placement-video-wrap {
-      padding-top: 60%;
+
+    .impact-ribbon-group {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      padding: 16px 18px;
+      color: white;
+      font-weight: 900;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
     }
-    
-    .placement-request-btn {
+
+    .impact-ribbon-group span {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 14px 30px;
-      border-radius: 999px;
-      background: var(--hannah-orange, #f28c28);
-      color: #fff;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 12px 28px rgba(242,140,40,.28);
+      gap: 34px;
     }
-    
-    .placement-request-btn:hover {
-      transform: translateY(-2px);
-      background: #ff9d3d;
+
+    .impact-ribbon-group span::after {
+      content: "♥";
+      color: var(--hannah-yellow);
+      font-size: 1rem;
+      line-height: 1;
     }
-    
-    @media (max-width: 1100px) {
-      .placement-band .grid-two {
-        grid-template-columns: 1fr;
-      }
-    
-      .placement-left-column {
-        margin-top: 0;
-        align-items: center;
-      }
-    
-      .placement-band .steps {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-    
-      .placement-band .step {
-        display: flex;
-        justify-content: flex-start;
-        text-align: left;
-        background: rgba(255,255,255,0.94);
-        color: var(--hannah-navy);
-        padding: 18px 22px;
-        border-radius: 20px;
-      }
-    
-      .placement-band .step::after {
-        display: none;
-      }
-    
-      .placement-band .step span {
-        width: 44px;
-        height: 44px;
-        font-size: 1rem;
-      }
+
+    .reverse-ribbon .impact-ribbon-group span::after {
+      color: rgba(255,255,255,0.78);
     }
+
+    @keyframes impactRibbonScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes reverseRibbonScroll {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0%); }
+    }
+
     /* AVAILABLE PETS */
 
     .pet-grid {
@@ -784,489 +599,7 @@
       margin-bottom: 12px;
     }
 
-    /* SOCIETY / CHARITABLE WORK */
-
-    .society-band {
-      position: relative;
-      overflow: hidden;
-      min-height: 720px;
-      padding: 90px 0;
-      background-color: var(--hannah-navy);
-      background-image:
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 8px 8px, 10px 10px;
-    }
-    
-    .society-band::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        url("charitable-work.jpg.png") left center / cover no-repeat;
-      z-index: 0;
-    }
-
-    .society-band .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .society-band .container::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      left: calc((100vw - min(var(--max), calc(100vw - 40px))) / -2);
-      right: calc((100vw - min(var(--max), calc(100vw - 40px))) / -2);
-      background:
-        linear-gradient(
-          90deg,
-          rgba(31,59,84,0.42) 0%,
-          rgba(31,59,84,0.62) 36%,
-          rgba(31,59,84,0.92) 58%,
-          var(--hannah-navy) 76%
-        ),
-        linear-gradient(
-          180deg,
-          var(--hannah-navy) 0%,
-          rgba(31,59,84,0.18) 18%,
-          rgba(31,59,84,0.10) 72%,
-          var(--hannah-navy) 100%
-        );
-      z-index: -1;
-      pointer-events: none;
-    }
-    
-    .society-band::after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      right: -100px;
-      top: 90px;
-      background-image: url("Heart.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      opacity: 0.12;
-      pointer-events: none;
-      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
-      z-index: 1;
-    }
-    
-    .society-band-inner {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      align-items: center;
-    }
-    
-    .society-copy {
-      grid-column: 2;
-      max-width: 720px;
-    }
-    
-    .society-copy .eyebrow {
-      color: var(--hannah-orange);
-    }
-    
-    .society-copy h2 {
-      color: white;
-      font-size: clamp(3rem, 5vw, 5.4rem);
-      line-height: 0.92;
-      margin-bottom: 24px;
-    }
-    
-    .society-copy h3 {
-      color: var(--hannah-blue);
-      font-size: 1.8rem;
-      margin-bottom: 28px;
-    }
-    
-    .society-copy p {
-      color: rgba(255,255,255,0.78);
-      font-size: 1.08rem;
-      line-height: 1.8;
-    }
-    
-    .society-copy .impact-cards {
-      margin: 32px 0 34px;
-      display: grid;
-      gap: 14px;
-    }
-    
-    .society-copy .impact-card {
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 18px;
-      padding: 18px 20px;
-    }
-    
-    .society-copy .impact-card h4 {
-      color: white;
-      margin: 0 0 6px;
-    }
-    
-    .society-copy .impact-card p {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.72);
-    }
-    
-    @media (max-width: 900px) {
-      .society-band {
-        min-height: auto;
-        padding: 90px 0;
-      }
-    
-      .society-band::before {
-        background:
-          linear-gradient(
-            180deg,
-            rgba(31,59,84,0.70) 0%,
-            var(--hannah-navy) 48%
-          ),
-          url("charitable-work.jpg.png") center top / cover no-repeat;
-      }
-    
-      .society-band-inner {
-        grid-template-columns: 1fr;
-        padding-top: 340px;
-      }
-    
-      .society-copy {
-        grid-column: 1;
-      }
-    }
-
-    /* IMPACT TICKER RIBBON */
-
-    .impact-ribbon {
-      position: relative;
-      overflow: hidden;
-      background: var(--hannah-orange);
-      border-top: 1px solid rgba(255,255,255,0.24);
-      border-bottom: 1px solid rgba(31,59,84,0.16);
-      box-shadow: 0 12px 34px rgba(31,59,84,0.16);
-    }
-    
-    .impact-ribbon-track {
-      display: flex;
-      width: max-content;
-      animation: impactRibbonScroll 32s linear infinite;
-    }
-    
-    .impact-ribbon-group {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      padding: 16px 18px;
-      color: white;
-      font-weight: 900;
-      white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.9rem;
-    }
-    
-    .impact-ribbon-group span {
-      display: inline-flex;
-      align-items: center;
-      gap: 34px;
-    }
-    
-    .impact-ribbon-group span::after {
-      content: "♥";
-      color: var(--hannah-yellow, #fdd757);
-      font-size: 1rem;
-      line-height: 1;
-    }
-    
-    @keyframes impactRibbonScroll {
-      from {
-        transform: translateX(0);
-      }
-    
-      to {
-        transform: translateX(-50%);
-      }
-    }
-    
-    @media (prefers-reduced-motion: reduce) {
-      .impact-ribbon-track {
-        animation: none;
-      }
-    }
-
-    /* REVERSE RIBBON */
-
-      .reverse-ribbon {
-        background: var(--hannah-blue);
-      }
-      
-      .reverse-ribbon .impact-ribbon-track {
-        animation: reverseRibbonScroll 34s linear infinite;
-      }
-      
-      .reverse-ribbon .impact-ribbon-group span::after {
-        color: rgba(255,255,255,0.78);
-      }
-      
-      @keyframes reverseRibbonScroll {
-      
-        from {
-          transform: translateX(-50%);
-        }
-      
-        to {
-          transform: translateX(0%);
-        }
-      }
-
-    /* REMOVE GAP ABOVE REVERSE RIBBON */
-
-      #placement-program {
-        margin-bottom: 0 !important;
-        padding-bottom: 90px !important;
-      }
-      
-      .reverse-ribbon {
-        margin-top: -2px;
-      }
-
-     /* IMPACT SECTION */
-      .society-impact {
-        position: relative;
-        overflow: hidden;
-      
-        padding: 110px 0 120px;
-      
-        background:
-          linear-gradient(
-            180deg,
-            var(--hannah-navy) 0%,
-            #244860 42%,
-            var(--cream) 100%
-          );
-      }
-      
-      .society-impact::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-      
-        background-image:
-          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-          linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      
-        background-size: 8px 8px, 10px 10px;
-      
-        pointer-events: none;
-      }
-      
-      /* HEADER */
-      
-      .impact-header {
-        position: relative;
-        z-index: 1;
-      
-        max-width: 780px;
-      
-        margin: 0 auto 56px;
-      
-        text-align: center;
-      }
-      
-     .impact-header h2 {
-        color: white;
-        white-space: nowrap;
-        font-size: clamp(2.4rem, 4vw, 5.8rem);
-        line-height: 0.92;
-      }
-            
-      .impact-header p {
-        color: rgba(255,255,255,0.76);
-      
-        font-size: 1.08rem;
-      
-        line-height: 1.7;
-      }
-      
-      /* GRID */
-      
-      .impact-program-grid {
-        position: relative;
-        z-index: 1;
-      
-        display: grid;
-      
-        grid-template-columns: repeat(4, 1fr);
-      
-        gap: 22px;
-      }
-      
-      /* CARD */
-      
-      .impact-program-card {
-        position: relative;
-      
-        display: flex;
-        flex-direction: column;
-      
-        overflow: hidden;
-      
-        border-radius: 28px;
-      
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255,255,255,0.96),
-            rgba(255,255,255,0.88)
-          );
-      
-        text-decoration: none;
-      
-        box-shadow:
-          0 26px 70px rgba(0,0,0,0.18);
-      
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-      
-      .impact-program-card:hover {
-        transform: translateY(-10px);
-      
-        box-shadow:
-          0 34px 85px rgba(0,0,0,0.24);
-      }
-      
-      /* IMAGE */
-      
-      .impact-image {
-        position: relative;
-      
-        height: 290px;
-      
-        overflow: hidden;
-      }
-      
-      .impact-image img {
-        width: 100%;
-        height: 100%;
-      
-        object-fit: cover;
-      
-        display: block;
-      
-        transition: transform 0.4s ease;
-      }
-      
-      .impact-program-card:hover .impact-image img {
-        transform: scale(1.05);
-      }
-      
-      .impact-image::after {
-        content: "";
-      
-        position: absolute;
-        inset: 0;
-      
-        background:
-          linear-gradient(
-            180deg,
-            rgba(0,0,0,0) 55%,
-            rgba(0,0,0,0.18) 100%
-          );
-      }
-      
-      /* CONTENT */
-      
-      .impact-card-content {
-        padding: 30px 28px 34px;
-      
-        display: flex;
-        flex-direction: column;
-      
-        flex: 1;
-      }
-      
-      .impact-card-content h3 {
-        color: var(--hannah-navy);
-      
-        font-size: 2rem;
-      
-        line-height: 1;
-      
-        margin-bottom: 18px;
-      }
-      
-      .impact-card-content p {
-        color: #556776;
-      
-        line-height: 1.7;
-      
-        margin-bottom: 30px;
-      }
-      
-      /* LINK */
-      
-      .impact-link {
-        margin-top: auto;
-      
-        color: var(--hannah-orange);
-      
-        font-weight: 900;
-      
-        letter-spacing: -0.01em;
-      }
-      
-      /* RESPONSIVE */
-      
-      @media (max-width: 1200px) {
-      
-        .impact-program-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      
-      @media (max-width: 720px) {
-      
-        .impact-program-grid {
-          grid-template-columns: 1fr;
-        }
-      
-        .impact-image {
-          height: 240px;
-        }
-      }
-
-    /* FINAL CTA */
-
-    .final-cta {
-      margin-top: 40px;
-      padding: 100px 24px;
-      text-align: center;
-      background:
-        linear-gradient(rgba(31,59,84,0.72), rgba(31,59,84,0.72)),
-        url("community-final.jpg") center / cover no-repeat;
-      color: white;
-    }
-
-    .final-cta h2,
-    .final-cta p {
-      color: white;
-    }
-
-    .final-cta-inner {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .final-cta .hero-buttons {
-      justify-content: center;
-    }
+    /* CHARITABLE WORK */
 
     .society-band {
       position: relative;
@@ -1279,7 +612,7 @@
         linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 8px 8px, 10px 10px;
     }
-    
+
     .society-band::before {
       content: "";
       position: absolute;
@@ -1300,7 +633,23 @@
         url("charitable-work.jpg.png") left center / 62% auto no-repeat;
       z-index: 0;
     }
-    
+
+    .society-band::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -100px;
+      top: 90px;
+      background-image: url("Heart.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.12;
+      pointer-events: none;
+      filter: brightness(0) saturate(100%) invert(63%) sepia(62%) saturate(802%) hue-rotate(165deg) brightness(92%) contrast(89%);
+      z-index: 1;
+    }
+
     .society-band-inner {
       position: relative;
       z-index: 2;
@@ -1308,50 +657,309 @@
       grid-template-columns: 0.85fr 1.15fr;
       align-items: center;
     }
-    
+
     .society-copy {
       grid-column: 2;
       max-width: 700px;
     }
-    
+
     .society-copy h2 {
       color: white;
       font-size: clamp(3rem, 5vw, 5.4rem);
       line-height: 0.92;
     }
-    
+
     .society-copy h3 {
       color: var(--hannah-blue);
       font-size: 1.8rem;
     }
-    
+
     .society-copy p {
       color: rgba(255,255,255,0.78);
+      font-size: 1.08rem;
+      line-height: 1.8;
     }
-    
-    .society-copy .impact-card {
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 18px;
-      padding: 18px 20px;
+
+    /* IMPACT SECTION */
+
+    .society-impact {
+      position: relative;
+      overflow: hidden;
+      padding: 110px 0 120px;
+      background:
+        linear-gradient(
+          180deg,
+          var(--hannah-navy) 0%,
+          #244860 42%,
+          var(--cream) 100%
+        );
     }
-    
-    .society-copy .impact-card h4 {
+
+    .society-impact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+      pointer-events: none;
+    }
+
+    .impact-header {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .impact-header h2 {
       color: white;
-      margin: 0 0 6px;
+      white-space: nowrap;
+      font-size: clamp(2.4rem, 4vw, 5.8rem);
+      line-height: 0.92;
     }
-    
-    .society-copy .impact-card p {
-      margin: 0;
-      color: rgba(255,255,255,0.72);
+
+    .impact-header p {
+      color: rgba(255,255,255,0.76);
+      font-size: 1.08rem;
+      line-height: 1.7;
     }
-    
+
+    .impact-program-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .impact-program-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.96),
+          rgba(255,255,255,0.88)
+        );
+      text-decoration: none;
+      box-shadow: 0 26px 70px rgba(0,0,0,0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .impact-program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 34px 85px rgba(0,0,0,0.24);
+    }
+
+    .impact-image {
+      position: relative;
+      height: 290px;
+      overflow: hidden;
+    }
+
+    .impact-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .impact-program-card:hover .impact-image img {
+      transform: scale(1.05);
+    }
+
+    .impact-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0) 55%,
+          rgba(0,0,0,0.18) 100%
+        );
+    }
+
+    .impact-card-content {
+      padding: 30px 28px 34px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .impact-card-content h3 {
+      color: var(--hannah-navy);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .impact-card-content p {
+      color: #556776;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .impact-link {
+      margin-top: auto;
+      color: var(--hannah-orange);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background-color: var(--hannah-navy);
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 8px 8px, 10px 10px;
+      color: rgba(255,255,255,0.78);
+      padding: 54px 0 30px;
+      margin-top: 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.7fr repeat(5, 1fr);
+      gap: 34px;
+      padding-bottom: 34px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer-logo-mark {
+      width: 210px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo-mark img {
+      width: 100%;
+      height: auto;
+    }
+
+    footer h4 {
+      color: var(--hannah-blue);
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,0.76);
+    }
+
+    footer a:hover {
+      color: var(--hannah-blue);
+    }
+
+    .footer-brand p {
+      max-width: 360px;
+    }
+
+    .footer-locations {
+      margin-top: 22px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .footer-locations p {
+      margin: 0 0 16px;
+    }
+
+    .footer-locations strong {
+      color: white;
+    }
+
+    .copyright {
+      padding-top: 24px;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (prefers-reduced-motion: reduce) {
+      .impact-ribbon-track {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .impact-program-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .placement-band .grid-two {
+        grid-template-columns: 1fr;
+      }
+
+      .placement-left-column {
+        margin-top: 0;
+        align-items: center;
+      }
+
+      .placement-band .steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .placement-band .step {
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        background: rgba(255,255,255,0.94);
+        color: var(--hannah-navy);
+        padding: 18px 22px;
+        border-radius: 20px;
+      }
+
+      .placement-band .step::after {
+        display: none;
+      }
+
+      .placement-band .step span {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .nav-links,
+      .phone {
+        display: none;
+      }
+
+      .community-hero,
+      .grid-two,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 900px) {
       .society-band {
         min-height: auto;
         padding: 90px 0;
       }
-    
+
       .society-band::before {
         background:
           linear-gradient(
@@ -1361,97 +969,40 @@
           ),
           url("charitable-work.jpg.png") center top / cover no-repeat;
       }
-    
+
       .society-band-inner {
         grid-template-columns: 1fr;
         padding-top: 340px;
       }
-    
+
       .society-copy {
         grid-column: 1;
       }
     }
-    /* FOOTER */
 
-    .site-footer {
-      background: var(--hannah-navy);
-      color: #fff;
-      padding: 64px 0 30px;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 44px;
-    }
-    
-    .footer-logo {
-      height: 58px;
-      width: auto;
-      margin-bottom: 18px;
-    }
-    
-    .footer-brand p {
-      max-width: 320px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.84);
-    }
-    
-    .footer-column h4 {
-      color: var(--hannah-blue);
-      margin: 0 0 16px;
-      font-size: 1rem;
-    }
-    
-    .footer-column a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    
-    .footer-column a:hover {
-      color: var(--hannah-blue);
-    }
-    
-    .footer-bottom {
-      margin-top: 42px;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,0.18);
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.78);
-    }
-    
-    @media (max-width: 900px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .community-hero,
-      .grid-two,
-      .society-panel,
-      .footer-inner {
+    @media (max-width: 720px) {
+      .impact-program-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-image img,
-      .image-card img {
-        height: 420px;
+      .impact-image {
+        height: 240px;
       }
 
-      .pet-grid {
-        grid-template-columns: 1fr;
+      .impact-header h2 {
+        white-space: normal;
       }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 680px) {
+      .nav {
+        min-height: 72px;
+      }
+
+      .logo img {
+        width: 148px;
+      }
+
       .hero-buttons {
         flex-direction: column;
       }
@@ -1460,64 +1011,35 @@
         width: 100%;
       }
 
-      .hero-image img,
-      .image-card img {
+      .hero-image img {
         height: 340px;
       }
-
-      .society-collage {
-        grid-template-columns: 1fr;
-      }
-
-      .society-collage img:first-child {
-        grid-column: auto;
-      }
-      
-    }
-    /* FIX EYEBROWS */
-
-    /* Placement Program + Community Impact = orange */
-    
-    #placement-program .eyebrow,
-    #society-impact .eyebrow {
-      color: var(--hannah-orange) !important;
-    }
-    
-    /* Available Pets + Hannah Community sizing */
-    
-    #available-pets .eyebrow,
-    .community-hero .eyebrow {
-      font-size: 0.78rem !important;
-      letter-spacing: 0.14em !important;
-      font-weight: 900 !important;
-      text-transform: uppercase;
     }
   </style>
 </head>
 
 <body>
 
-     <header class="site-header">
-      <div class="container nav-shell">
-        <a class="brand" href="index.html" aria-label="Hannah Pet Hospital home">
-          <img
-            src="Hannah Logo 2colorPMS PetHospital.png"
-            alt="Hannah Pet Hospital"
-            class="brand-logo"
-          />
-        </a>
-    
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="plans.html">Plans</a>
-          <a href="whats-included.html">What’s Included</a>
-          <a href="community.html" class="active">Community</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-    
-        <a href="join.html" class="nav-button">Join Hannah</a>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html" aria-label="Hannah Pet Hospital home">
+        <img src="Hannah Logo.png" alt="Hannah Pet Hospital" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Membership</a>
+        <a href="whats-included.html">What’s Included</a>
+        <a href="plans.html">Plans</a>
+        <a href="community.html">Community</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="phone" href="tel:15039055200">503.905.5200</a>
+        <a class="btn btn-primary" href="index.html#join">Become a Member</a>
       </div>
-    </header>
+    </div>
+  </header>
 
   <main>
 
@@ -1558,30 +1080,30 @@
               </iframe>
             </div>
           </div>
-    
-          <a href="#contact" class="placement-request-btn">
+
+          <a href="#available-pets" class="placement-request-btn">
             Request Info
           </a>
         </div>
-    
+
         <div>
           <p class="eyebrow">Placement Program</p>
           <h2>Find the Right Pet — for Life</h2>
           <h3>Hannah’s Lifetime Matching Program™</h3>
-    
+
           <p>
             A great relationship starts with the right match. At Hannah, we believe
             every Pet deserves the right family, and every family deserves a Pet
             whose personality, energy, and needs fit naturally into their life.
           </p>
-    
+
           <p>
             That’s why we created the Hannah Lifetime Matching Program™ — a thoughtful
             placement process designed with guidance from behavioral experts,
             psychologists, and veterinary professionals to help create lasting,
             successful bonds between Pets and Pet Parents.
           </p>
-    
+
           <div class="steps">
             <div class="step"><span>1</span>Tell us about your lifestyle</div>
             <div class="step"><span>2</span>Meet Pets that fit your family</div>
@@ -1594,7 +1116,6 @@
 
     <section class="impact-ribbon reverse-ribbon" aria-label="Placement highlights">
       <div class="impact-ribbon-track">
-    
         <div class="impact-ribbon-group">
           <span>Lifetime Matching Program™</span>
           <span>Thoughtful Pet Placement</span>
@@ -1603,7 +1124,7 @@
           <span>Support for Pet Parents</span>
           <span>Compassionate Placement</span>
         </div>
-    
+
         <div class="impact-ribbon-group" aria-hidden="true">
           <span>Lifetime Matching Program™</span>
           <span>Thoughtful Pet Placement</span>
@@ -1612,7 +1133,6 @@
           <span>Support for Pet Parents</span>
           <span>Compassionate Placement</span>
         </div>
-    
       </div>
     </section>
 
@@ -1666,19 +1186,19 @@
           <p class="eyebrow">Charitable Work</p>
           <h2>The Charitable Heart Behind Hannah</h2>
           <h3>Hannah the Pet Society</h3>
-    
+
           <p>
             Hannah the Pet Society helps extend Hannah’s mission beyond the hospital
             walls by supporting programs that strengthen the bond between Pets and
             people.
           </p>
-    
+
           <p>
             Through placement support, education, community programs, and charitable
             initiatives, the Society works to help more Pets find loving homes and
             remain with the families who care for them.
           </p>
-    
+
           <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener" class="btn btn-primary">
             Visit Hannah the Pet Society
           </a>
@@ -1696,7 +1216,7 @@
           <span>Pet Placement Support</span>
           <span>Community Outreach</span>
         </div>
-    
+
         <div class="impact-ribbon-group" aria-hidden="true">
           <span>Veteran Program</span>
           <span>Classroom Pet Program</span>
@@ -1710,153 +1230,159 @@
 
     <section class="society-impact" id="society-impact">
       <div class="container">
-    
         <div class="impact-header">
           <p class="eyebrow">Community Impact</p>
           <h2>Programs with Heart</h2>
-    
+
           <p>
             Through Hannah the Pet Society, we support meaningful programs
             that bring Pets, people, and the community together.
           </p>
         </div>
-    
+
         <div class="impact-program-grid">
-    
-          <!-- VETERAN PROGRAM -->
-    
           <a class="impact-program-card" href="#">
-    
             <div class="impact-image">
               <img src="veteran.jpg" alt="Veteran with dog">
             </div>
-    
+
             <div class="impact-card-content">
               <h3>Veteran Program</h3>
-    
               <p>
                 Supporting veterans through the healing companionship of Pets and
                 the care that helps keep those bonds strong.
               </p>
-    
-              <span class="impact-link">
-                Learn more →
-              </span>
+              <span class="impact-link">Learn more →</span>
             </div>
-    
           </a>
-    
-          <!-- CLASSROOM PET PROGRAM -->
-    
+
           <a class="impact-program-card" href="#">
-    
             <div class="impact-image">
               <img src="classroom-pet-program.png" alt="Classroom Pet Program">
             </div>
-    
+
             <div class="impact-card-content">
               <h3>Classroom Pet Program</h3>
-    
               <p>
                 Helping students learn compassion, responsibility, and connection
                 through the joy of classroom Pets.
               </p>
-    
-              <span class="impact-link">
-                Learn more →
-              </span>
+              <span class="impact-link">Learn more →</span>
             </div>
-    
           </a>
-    
-          <!-- FOSTER FAMILY -->
-    
+
           <a class="impact-program-card" href="#">
-    
             <div class="impact-image">
               <img src="foster-family.png" alt="Helping hand with dog paw">
             </div>
-    
+
             <div class="impact-card-content">
               <h3>Foster Family Network</h3>
-    
               <p>
                 Providing temporary homes and extra support for Pets who need
                 safety, stability, and love.
               </p>
-    
-              <span class="impact-link">
-                Learn more →
-              </span>
+              <span class="impact-link">Learn more →</span>
             </div>
-    
           </a>
-    
-          <!-- HELPING HAND -->
-    
+
           <a class="impact-program-card" href="#">
-    
             <div class="impact-image">
               <img src="helping-hand.png" alt="Woman with foster dogs">
             </div>
-    
+
             <div class="impact-card-content">
               <h3>Helping Hand of the Week</h3>
-    
               <p>
                 Partnering with rescue groups and organizations that may not
                 otherwise have access to veterinary resources for the Pets
                 in their care.
               </p>
-    
-              <span class="impact-link">
-                Learn more →
-              </span>
+              <span class="impact-link">Learn more →</span>
             </div>
-    
           </a>
-    
         </div>
-    
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img
-          src="Hannah Logo 2colorPMS PetHospital.png"
-          alt="Hannah Pet Hospital"
-          class="footer-logo"
-        />
-        <p>
-          Total Lifetime Care™ for one predictable monthly fee.
-        </p>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-mark">
+            <img src="Hannah Logo White-1656713199518.png" alt="Hannah Pet Hospital" />
+          </div>
+
+          <p>
+            Exclusive veterinary care for Hannah the Pet Society Members through
+            Total Lifetime Care®.
+          </p>
+
+          <div class="footer-locations">
+            <p>
+              <strong>Hannah Veterinary & Emergency Hospital</strong><br>
+              10164 SW Washington Square Rd<br>
+              Tigard, OR 97223
+            </p>
+
+            <p>
+              <strong>Hannah Veterinary Hospital</strong><br>
+              10526 SE Washington St A-103<br>
+              Portland, OR 97216
+            </p>
+
+            <p>
+              <strong>Call us at</strong><br>
+              <a href="tel:15039055200">503.905.5200</a>
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h4>Membership</h4>
+          <a href="index.html#story">Total Lifetime Care™</a>
+          <a href="index.html#why">Hannah the Pet Society</a>
+          <a href="index.html#story">What Makes Hannah Different</a>
+        </div>
+
+        <div>
+          <h4>What's Included</h4>
+          <a href="whats-included.html">See What's Included</a>
+          <a href="whats-included.html#stories">Real Stories</a>
+          <a href="whats-included.html#compare">Compare to Wellness Plans & Pet Insurance</a>
+        </div>
+
+        <div>
+          <h4>Plans</h4>
+          <a href="plans.html#plans">Plan Pricing</a>
+          <a href="plans.html#healthy">Healthy Start™ Plans</a>
+          <a href="plans.html#sick">Sick or Injured Care Plans</a>
+        </div>
+
+        <div>
+          <h4>Community</h4>
+          <a href="community.html#placement-program">Placement Program</a>
+          <a href="community.html#available-pets">Available Pets</a>
+          <a href="community.html#hannah-the-pet-society">Charitable Work</a>
+        </div>
+
+        <div>
+          <h4>Careers</h4>
+          <a href="careers.html">Join Our Team</a>
+
+          <h4>Blog</h4>
+          <a href="blog.html">Read Articles</a>
+
+          <h4>Hannah Formulary</h4>
+          <a href="formulary.html">View Formulary</a>
+        </div>
       </div>
-  
-      <div class="footer-column">
-        <h4>Explore</h4>
-        <a href="index.html">Membership</a>
-        <a href="plans.html">Plans</a>
-        <a href="whats-included.html">What’s Included</a>
-        <a href="community.html">Community</a>
-        <a href="careers.html">Careers</a>
+
+      <div class="copyright">
+        © 2026 Hannah Pet Hospital. All Rights Reserved.
       </div>
-  
-      <div class="footer-column">
-        <h4>Community</h4>
-        <a href="#placement-program">Placement Program</a>
-        <a href="#available-pets">Available Pets</a>
-        <a href="https://www.hannahsociety.org/" target="_blank" rel="noopener">
-          Hannah the Pet Society
-        </a>
-      </div>
-    </div>
-  
-    <div class="container footer-bottom">
-      © 2026 Hannah Pet Hospital. All rights reserved.
     </div>
   </footer>
 
