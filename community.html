@@ -159,66 +159,106 @@
 
     /* HEADER */
 
-    header {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(251, 247, 239, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(31, 59, 84, 0.15);
+      z-index: 100;
+      background: rgba(251, 244, 232, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(31, 59, 84, 0.08);
     }
-
-    .nav {
-      min-height: 96px;
-      padding: 12px 0;
-      display: flex;
+    
+    .nav-shell {
+      min-height: 88px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      gap: 34px;
     }
-
-    .logo {
+    
+    .brand {
       display: inline-flex;
       align-items: center;
-      min-width: 210px;
     }
-
-    .logo img {
+    
+    .brand-logo {
       width: 210px;
       height: auto;
       display: block;
     }
-
-    .nav-links {
+    
+    .main-nav {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 24px;
+      gap: 30px;
+    }
+    
+    .main-nav a {
+      position: relative;
       color: var(--hannah-navy);
-      font-size: 0.96rem;
+      text-decoration: none;
+      font-size: 0.95rem;
       font-weight: 800;
+      letter-spacing: 0.01em;
+      opacity: 0.9;
+      transition: color 0.2s ease;
     }
-
-    .nav-links a {
-      opacity: 0.86;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
+    
+    .main-nav a:hover,
+    .main-nav a.active {
       color: var(--hannah-orange);
     }
-
+    
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--hannah-blue);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+    
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      transform: scaleX(1);
+    }
+    
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
-
-    .phone {
+    
+    .phone-link {
       color: var(--hannah-navy);
+      text-decoration: none;
       font-weight: 800;
       white-space: nowrap;
     }
-
+    
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--hannah-orange);
+      color: white;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 12px 20px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(245, 155, 58, 0.28);
+      transition: transform 0.2s ease;
+    }
+    
+    .nav-button:hover {
+      transform: translateY(-2px);
+    }
     /* HERO */
 
     .community-hero {
@@ -815,72 +855,120 @@
 
     /* FOOTER */
 
-    footer {
+    .site-footer {
       background-color: var(--hannah-navy);
       background-image:
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    
       background-size: 8px 8px, 10px 10px;
+    
       color: rgba(255,255,255,0.78);
-      padding: 54px 0 30px;
-      margin-top: 0;
+    
+      padding: 58px 0 28px;
     }
-
+    
     .footer-grid {
       display: grid;
       grid-template-columns: 1.7fr repeat(5, 1fr);
-      gap: 34px;
+      gap: 40px;
+    
       padding-bottom: 34px;
+    
       border-bottom: 1px solid rgba(255,255,255,0.12);
     }
-
-    .footer-logo-mark {
+    
+    .footer-logo {
       width: 210px;
+      height: auto;
       margin-bottom: 18px;
     }
-
-    .footer-logo-mark img {
-      width: 100%;
-      height: auto;
-    }
-
-    footer h4 {
-      color: var(--hannah-blue);
-      margin: 0 0 12px;
-      font-size: 1rem;
-    }
-
-    footer a {
-      display: block;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.76);
-    }
-
-    footer a:hover {
-      color: var(--hannah-blue);
-    }
-
+    
     .footer-brand p {
       max-width: 360px;
+      line-height: 1.7;
     }
-
+    
     .footer-locations {
-      margin-top: 22px;
-      font-size: 0.92rem;
-      line-height: 1.55;
+      margin-top: 24px;
     }
-
+    
     .footer-locations p {
-      margin: 0 0 16px;
+      margin: 0 0 18px;
+      line-height: 1.6;
+      font-size: 0.92rem;
     }
-
+    
     .footer-locations strong {
       color: white;
     }
-
-    .copyright {
+    
+    .footer-column h4 {
+      color: #51b5e0;
+      margin: 0 0 14px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+    
+    .footer-subheading {
+      margin-top: 26px !important;
+    }
+    
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    
+    .footer-column a:hover,
+    .footer-locations a:hover {
+      color: #51b5e0;
+    }
+    
+    .footer-bottom {
       padding-top: 24px;
       font-size: 0.9rem;
+      color: rgba(255,255,255,0.72);
+    }
+    
+    /* MOBILE */
+    
+    @media (max-width: 1100px) {
+    
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 900px) {
+    
+      .nav-shell {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+      }
+    
+      .main-nav,
+      .phone-link {
+        display: none;
+      }
+    
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 680px) {
+    
+      .brand-logo {
+        width: 160px;
+      }
+    
+      .nav-shell {
+        min-height: 76px;
+      }
     }
 
     /* RESPONSIVE */
@@ -1020,24 +1108,36 @@
 
 <body>
 
-  <header>
-    <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Hannah Pet Hospital home">
-        <img src="Hannah Logo.png" alt="Hannah Pet Hospital" />
+  <header class="site-header">
+    <div class="container nav-shell">
+  
+      <a class="brand" href="index.html" aria-label="Hannah Pet Hospital home">
+        <img
+          src="Hannah Logo.png"
+          alt="Hannah Pet Hospital"
+          class="brand-logo"
+        />
       </a>
-
-      <nav class="nav-links" aria-label="Main navigation">
+  
+      <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">Membership</a>
         <a href="whats-included.html">What’s Included</a>
         <a href="plans.html">Plans</a>
-        <a href="community.html">Community</a>
+        <a href="community.html" class="active">Community</a>
         <a href="careers.html">Careers</a>
+        <a href="blog.html">Blog</a>
       </nav>
-
+  
       <div class="nav-actions">
-        <a class="phone" href="tel:15039055200">503.905.5200</a>
-        <a class="btn btn-primary" href="index.html#join">Become a Member</a>
+        <a class="phone-link" href="tel:15039055200">
+          503.905.5200
+        </a>
+  
+        <a href="index.html#join" class="nav-button">
+          Become a Member
+        </a>
       </div>
+  
     </div>
   </header>
 
@@ -1307,82 +1407,109 @@
 
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
+  
       <div class="footer-grid">
+  
+        <!-- BRAND -->
+  
         <div class="footer-brand">
-          <div class="footer-logo-mark">
-            <img src="Hannah Logo White-1656713199518.png" alt="Hannah Pet Hospital" />
-          </div>
-
+  
+          <img
+            src="Hannah Logo White-1656713199518.png"
+            alt="Hannah Pet Hospital"
+            class="footer-logo"
+          />
+  
           <p>
-            Exclusive veterinary care for Hannah the Pet Society Members through
-            Total Lifetime Care®.
+            Exclusive veterinary care for Hannah the Pet Society Members
+            through Total Lifetime Care®.
           </p>
-
+  
           <div class="footer-locations">
+  
             <p>
               <strong>Hannah Veterinary & Emergency Hospital</strong><br>
               10164 SW Washington Square Rd<br>
               Tigard, OR 97223
             </p>
-
+  
             <p>
               <strong>Hannah Veterinary Hospital</strong><br>
               10526 SE Washington St A-103<br>
               Portland, OR 97216
             </p>
-
+  
             <p>
               <strong>Call us at</strong><br>
               <a href="tel:15039055200">503.905.5200</a>
             </p>
+  
           </div>
         </div>
-
-        <div>
+  
+        <!-- COLUMN 1 -->
+  
+        <div class="footer-column">
           <h4>Membership</h4>
+  
           <a href="index.html#story">Total Lifetime Care™</a>
-          <a href="index.html#why">Hannah the Pet Society</a>
-          <a href="index.html#story">What Makes Hannah Different</a>
+          <a href="index.html#why">Why Hannah</a>
+          <a href="index.html#difference">What Makes Hannah Different</a>
         </div>
-
-        <div>
+  
+        <!-- COLUMN 2 -->
+  
+        <div class="footer-column">
           <h4>What's Included</h4>
+  
           <a href="whats-included.html">See What's Included</a>
           <a href="whats-included.html#stories">Real Stories</a>
-          <a href="whats-included.html#compare">Compare to Wellness Plans & Pet Insurance</a>
+          <a href="whats-included.html#compare">
+            Compare to Wellness Plans & Insurance
+          </a>
         </div>
-
-        <div>
+  
+        <!-- COLUMN 3 -->
+  
+        <div class="footer-column">
           <h4>Plans</h4>
+  
           <a href="plans.html#plans">Plan Pricing</a>
           <a href="plans.html#healthy">Healthy Start™ Plans</a>
           <a href="plans.html#sick">Sick or Injured Care Plans</a>
         </div>
-
-        <div>
+  
+        <!-- COLUMN 4 -->
+  
+        <div class="footer-column">
           <h4>Community</h4>
-          <a href="community.html#placement-program">Placement Program</a>
-          <a href="community.html#available-pets">Available Pets</a>
-          <a href="community.html#hannah-the-pet-society">Charitable Work</a>
+  
+          <a href="#placement-program">Placement Program</a>
+          <a href="#available-pets">Available Pets</a>
+          <a href="#hannah-the-pet-society">Charitable Work</a>
         </div>
-
-        <div>
+  
+        <!-- COLUMN 5 -->
+  
+        <div class="footer-column">
           <h4>Careers</h4>
           <a href="careers.html">Join Our Team</a>
-
-          <h4>Blog</h4>
+  
+          <h4 class="footer-subheading">Blog</h4>
           <a href="blog.html">Read Articles</a>
-
-          <h4>Hannah Formulary</h4>
+  
+          <h4 class="footer-subheading">Hannah Formulary</h4>
           <a href="formulary.html">View Formulary</a>
         </div>
+  
       </div>
-
-      <div class="copyright">
+  
+      <div class="footer-bottom">
         © 2026 Hannah Pet Hospital. All Rights Reserved.
       </div>
+  
     </div>
   </footer>
 
